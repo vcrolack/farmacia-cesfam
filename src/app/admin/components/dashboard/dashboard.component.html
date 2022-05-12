@@ -1,0 +1,43 @@
+<h2>Bienvenido, Juanito</h2>
+
+<!-- <div class="container containe">
+    <div class="row">
+        <ng-container *ngFor="let card of cards">
+            <div class="col-12 col-md-4 mt-4">
+                <div class="card card-dashboard" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{card.title}}</h5>
+                        <p class="card-text">{{card.description}}</p>
+                    </div>
+                    <div class="cotainer-btn d-flex justify-content-end pe-3">
+                        <a href="#"><fa-icon class="fa-3x" [icon]="faCircleRight"></fa-icon></a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div> -->
+<div class="grid-container">
+    <h1 class="mat-h1">Dashboard</h1>
+    <mat-grid-list cols="2" rowHeight="350px">
+      <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              {{card.title}}
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>Card Content Here</div>
+          </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    </mat-grid-list>
+  </div>

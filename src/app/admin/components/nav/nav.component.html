@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+          <a mat-list-item routerLink="/admin/dashboard">Inicio</a>
+        <a mat-list-item routerLink="#">Formulario de atención</a>
+        <a mat-list-item routerLink="#">Prescripciones</a>
+        <a mat-list-item routerLink="#">Stock</a>
+        <a mat-list-item routerLink="#">Reservas</a>
+        <a mat-list-item routerLink="#">Contacto pacientes</a>
+        <a mat-list-item routerLink="#">Soporte</a>
+        <div class="container-fluid d-flex justify-content-center mt-4">
+            <button class="btn btn-danger">Cerrar sesion</button>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button
+              type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>Cesfam automatizado</span>
+          </mat-toolbar>
+      <!-- Add Content Here -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome' 
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -13,11 +14,15 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    FontAwesomeModule,
+    MaterialModule
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FontAwesomeModule,
+    MaterialModule
   ]
 })
 export class SharedModule { }

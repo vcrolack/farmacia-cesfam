@@ -19,15 +19,18 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <button
-              type="button"
-              aria-label="Toggle sidenav"
-              mat-icon-button
-              (click)="drawer.toggle()"
-              *ngIf="isHandset$ | async">
-              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-            </button>
-            <span>Cesfam automatizado</span>
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <div class="container-img">
+            <img src="../../../../assets/img/logo.png" alt="">
+          </div>
+            <h1>Cesfam automatizado</h1>
           </mat-toolbar>
       <!-- Add Content Here -->
       <router-outlet></router-outlet>

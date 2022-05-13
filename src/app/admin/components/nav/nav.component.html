@@ -5,13 +5,11 @@
         [opened]="(isHandset$ | async) === false">
       <mat-toolbar>Menu</mat-toolbar>
       <mat-nav-list>
-          <a mat-list-item routerLink="/admin/dashboard">Inicio</a>
-        <a mat-list-item routerLink="#">Formulario de atención</a>
-        <a mat-list-item routerLink="#">Prescripciones</a>
-        <a mat-list-item routerLink="#">Stock</a>
-        <a mat-list-item routerLink="#">Reservas</a>
-        <a mat-list-item routerLink="#">Contacto pacientes</a>
-        <a mat-list-item routerLink="#">Soporte</a>
+        <a mat-list-item routerLink="/admin/dashboard"><fa-icon class="me-1" [icon]="faHome"></fa-icon>Inicio</a>
+        <a mat-list-item routerLink="#"> <fa-icon class="me-1" [icon]="faFileMedical"></fa-icon> Prescripciones</a>
+        <a mat-list-item routerLink="#"> <fa-icon class="me-1" [icon]="faCubes"></fa-icon> Stock</a>
+        <a mat-list-item routerLink="#"> <fa-icon class="me-1" [icon]="faClipboardList"></fa-icon> Reservas</a>
+        <a mat-list-item routerLink="#"> <fa-icon class="me-1" [icon]="faQuestionCircle"></fa-icon> Soporte</a>
         <div class="container-fluid d-flex justify-content-center mt-4">
             <button class="btn btn-danger">Cerrar sesion</button>
         </div>

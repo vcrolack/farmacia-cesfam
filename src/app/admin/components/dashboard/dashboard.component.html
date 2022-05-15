@@ -17,8 +17,11 @@
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="dashboard-card-content">
-            <ng-container *ngIf="card.title === 'Profile'">
+            <ng-container *ngIf="card.title === 'Información de usuario'">
               <app-profile></app-profile>
+            </ng-container>
+            <ng-container *ngIf="card.title === 'Pacientes'">
+              <app-patients></app-patients>
             </ng-container>
           </mat-card-content>
         </mat-card>

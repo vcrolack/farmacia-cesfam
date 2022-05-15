@@ -1,0 +1,30 @@
+<mat-card-content>
+    <mat-table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="lastname">
+          <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="rut">
+          <mat-header-cell *matHeaderCellDef> Rut </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.rut}} </mat-cell>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="patology">
+          <mat-header-cell *matHeaderCellDef> Patología </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.patology}} </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</mat-card-content>

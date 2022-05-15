@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Víctor",
+            "lastname": "Rolack",
+            "role": "Médico",
+            "specialty": "Mordeduras de gatos",
+            "rut": "199609068",
+            "pass": "test123"
+        },
+        {
+            "id": "2",
+            "name": "Max",
+            "lastname": "Sepulveda",
+            "role": "Médico",
+            "specialty": "Mordeduras de demonios",
+            "rut": "189829831",
+            "pass": "test123"
+        }
+    ]
+}

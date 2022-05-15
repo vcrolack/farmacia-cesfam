@@ -11,7 +11,7 @@
         <a mat-list-item routerLink="#"> <fa-icon class="me-1" [icon]="faClipboardList"></fa-icon> Reservas</a>
         <a mat-list-item routerLink="#"> <fa-icon class="me-1" [icon]="faQuestionCircle"></fa-icon> Soporte</a>
         <div class="container-fluid d-flex justify-content-center mt-4">
-            <button class="btn btn-danger">Cerrar sesion</button>
+            <button (click)="logOut()" class="btn btn-danger">Cerrar sesion</button>
         </div>
       </mat-nav-list>
     </mat-sidenav>

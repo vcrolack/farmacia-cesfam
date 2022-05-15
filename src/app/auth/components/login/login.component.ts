@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,15 +25,19 @@ export class LoginComponent implements OnInit {
     ]
   }
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.formBuilder.group({
 
-      email: new FormControl("", Validators.compose([
+      rut: new FormControl("", Validators.compose([
         Validators.required,
         Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"),
       ])
       ),
-      contrasena: new FormControl("", Validators.compose([
+      pass: new FormControl("", Validators.compose([
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(30),
@@ -43,8 +50,19 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  loginUser(data: any) {
-    console.log('sesion iniciada')
+  async loginUser(data: any) {
+    
+    await this.authService.loginUser(data)
+    .then(
+      res => {
+        console.log(res)
+        if (localStorage.getItem('isLogged') === 'true') {
+          this.router.navigateByUrl('admin/dashboard')
+        } else {
+          console.log('no pasa nah')
+        }
+      }
+    )
   }
 
 }

@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth/auth.service';
 import { faHome, IconDefinition, faFileMedical, faCubes, faClipboardList, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -27,6 +28,10 @@ export class NavComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
+    private authService: AuthService
     ) {}
 
+  logOut() {
+    this.authService.logOut();
+  }
 }

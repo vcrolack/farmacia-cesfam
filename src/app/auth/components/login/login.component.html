@@ -7,12 +7,12 @@
             <div class="container-input d-flex flex-column me-lg-5">
               <div class="container-email">
                 <label for="">Rut</label>
-                <input placeholder="Sin puntos ni guion" formControlName="email" class="form-control" type="text">
+                <input placeholder="Sin puntos ni guion" formControlName="rut" class="form-control" type="text">
                 <div class="validation-error">
                   <ng-container *ngFor="let validation of mensajesErrores.email">
                     <div
-                      *ngIf="(loginForm.get('email')!.hasError(validation.type)) &&
-                      (loginForm.get('email')!.dirty || loginForm.get('email')!.touched)"
+                      *ngIf="(loginForm.get('rut')!.hasError(validation.type)) &&
+                      (loginForm.get('rut')!.dirty || loginForm.get('rut')!.touched)"
                     >
                       <p class="text-warning ">{{validation.message}}</p>
                     </div>
@@ -21,12 +21,12 @@
               </div>
               <div class="container-contrasena">
                 <label for="">Contraseña</label>
-                <input formControlName="contrasena" class="form-control" type="text">
+                <input formControlName="pass" class="form-control" type="text">
                 <div class="validation-error">
                   <ng-container *ngFor="let validation of mensajesErrores.contrasena">
                     <div
-                      *ngIf="(loginForm.get('contrasena')!.hasError(validation.type)) &&
-                      (loginForm.get('contrasena')!.dirty || loginForm.get('contrasena')!.touched)"
+                      *ngIf="(loginForm.get('pass')!.hasError(validation.type)) &&
+                      (loginForm.get('pass')!.dirty || loginForm.get('pass')!.touched)"
                     >
                     <p class="text-warning ">{{validation.message}}</p>
                   </div>

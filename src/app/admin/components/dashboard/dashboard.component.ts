@@ -15,17 +15,17 @@ export class DashboardComponent implements OnInit {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'profile', cols: 1, rows: 1 },
+          { title: 'Información de usuario', cols: 1, rows: 1 },
           { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
+          { title: 'Pacientes', cols: 1, rows: 1 },
           { title: 'Card 4', cols: 1, rows: 1 }
         ];
       }
 
       return [
-        { title: 'Profile', cols: 2, rows: 1 },
+        { title: 'Información de usuario', cols: 2, rows: 1 },
         { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
+        { title: 'Pacientes', cols: 1, rows: 2 },
         { title: 'Card 4', cols: 1, rows: 1 }
       ];
     })

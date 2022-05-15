@@ -6,13 +6,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { NavComponent } from './components/nav/nav.component';
 import { ProfileComponent } from './components/dashboard/components/profile/profile.component';
+import { PatientsComponent } from './components/dashboard/components/patients/patients.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     NavComponent,
-    ProfileComponent
+    ProfileComponent,
+    PatientsComponent
   ],
   imports: [
     CommonModule,

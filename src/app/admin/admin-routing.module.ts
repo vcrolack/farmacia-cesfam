@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from '../auth/guards/login/login.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavComponent } from './components/nav/nav.component';
+import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
         path: 'dashboard',
         canActivate: [LoginGuard],
         component: DashboardComponent
+      },
+      {
+        path: 'prescription',
+        canActivate: [LoginGuard],
+        component: PrescriptionFormComponent
       }
     ]
   }

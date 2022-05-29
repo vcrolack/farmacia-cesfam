@@ -1,0 +1,100 @@
+<form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Crear usuario</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+            <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Primer nombre" formControlName="firstName">
+              <mat-error *ngIf="form.controls['firstName'].hasError('required')">
+                Primer nombre es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Segundo nombre" formControlName="secondName">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Apellido paterno" formControlName="lastName">
+              <mat-error *ngIf="form.controls['lastName'].hasError('required')">
+                 Apellido paterno es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Apellido materno" formControlName="secondLastName">
+              <mat-error *ngIf="form.controls['secondLastName'].hasError('required')">
+                Apellido materno es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Rut" formControlName="rut">
+              <mat-error *ngIf="form.controls['rut'].hasError('required')">
+                Rut es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Contraseña" formControlName="password">
+              <mat-error *ngIf="form.controls['password'].hasError('required')">
+                Contraseña es <strong>requerida</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="form.controls['email'].hasError('required')">
+                Email es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+              <h5>Rol</h5>
+            <mat-radio-group formControlName="role">
+              <mat-radio-button value="1">Médico</mat-radio-button>
+              <mat-radio-button value="2">Farmacéutico</mat-radio-button>
+              <mat-radio-button value="3">Administrador</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="form.controls['email'].hasError('required')">
+                rol es requerido <strong>required</strong>
+              </mat-error>
+          </div>
+          <ng-container *ngIf="form.controls['role']?.value === '1'">
+            <div class="col">
+                <h5>Especialidad médica</h5>
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose one</mat-label>
+                    <mat-select>
+                        <ng-container *ngFor="let specialty of specialties">
+                            <mat-option value={{specialty.id}}>{{specialty.name}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+          </ng-container>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  

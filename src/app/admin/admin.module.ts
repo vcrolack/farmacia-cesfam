@@ -11,7 +11,7 @@ import { PatientsComponent } from './components/dashboard/components/patients/pa
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
 import { StockComponent } from './components/stock/stock.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
-
+import { UserService } from '../services/user.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
     DashboardRoutingModule,
     SharedModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [UserService]
 })
 export class DashboardModule { }

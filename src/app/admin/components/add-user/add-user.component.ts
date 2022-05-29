@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+//Services
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-user',
@@ -18,33 +13,44 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class AddUserComponent {
 
   form = this.fb.group({
-    firstName: [null, Validators.required],
-    secondName: [null],
-    lastName: [null, Validators.required],
-    secondLastName: [null, Validators.required],
+    first_name: [null, Validators.required],
+    second_name: [null],
+    last_name: [null, Validators.required],
+    second_last_name: [null, Validators.required],
     rut: [null, Validators.required],
     password: [null, Validators.required],
-    role: [null, Validators.required],
+    role_id: [null, Validators.required],
     email: [null, Validators.required],
-    specialty: [null]
+    specialty_id: [null]
   });
 
-  selected = new FormControl('valid', [Validators.required, Validators.pattern('valid')]);
-
-  selectFormControl = new FormControl('valid', [Validators.required, Validators.pattern('valid')]);
-
-  matcher = new MyErrorStateMatcher();
-
   specialties: any[] = [
-    {id: 1, name: 'Cardiologo'},
-    {id: 2, name: 'General'}
+    {id: "1", name: 'Cardiologo'},
+    {id: "2", name: 'General'}
   ]
   
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private _snackBar: MatSnackBar 
+  ) {}
 
-  onSubmit(): void {
-    alert('Thanks!');
+  onSubmit(data: any) {
+    data.role_id = parseInt(data.role_id)
+    data.specialty_id = parseInt(data.specialty_id)
+    console.log(typeof(data))
+    this.userService.postUser(data).then(
+      () => {
+        this._snackBar.open('Usuario creado.', 'Cerrar')
+        this.form.reset()
+      }
+    )
+    .catch(
+      () => {
+        this._snackBar.open('Ha ocurrido un error!', 'Cerrar')
+      }
+    )
   }
 
 }

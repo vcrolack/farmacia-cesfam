@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   mensajesErrores = {
     email: [
       {type: "required", message: "El rut es obligatorio."},
-      {type: "pattern", message: "El rut ingresado no es válido."}
+      {type: "minlength", message: "El rut debe tener un largo de 8 a 9 caracteres"},
+      {type: "maxlength", message: "El rut debe tener un largo de 8 a 9 caracteres"}
     ],
     contrasena: [
       {type: "required", message: "La contraseña es obligatoria."},
@@ -34,13 +35,14 @@ export class LoginComponent implements OnInit {
 
       rut: new FormControl("", Validators.compose([
         Validators.required,
-        Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"),
+        Validators.minLength(8),
+        Validators.maxLength(9)
       ])
       ),
       pass: new FormControl("", Validators.compose([
         Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(30),
+        Validators.minLength(6),
+        Validators.maxLength(25),
       ])
       )
     })

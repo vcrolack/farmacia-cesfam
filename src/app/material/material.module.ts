@@ -20,6 +20,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 
 
@@ -46,7 +47,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,
-    MatOptionModule
+    MatOptionModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -68,7 +70,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,
-    MatOptionModule
+    MatOptionModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule { }

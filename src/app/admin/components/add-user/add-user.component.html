@@ -1,4 +1,4 @@
-<form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="form"  (ngSubmit)="onSubmit(form.value)" method="post">
     <mat-card class="shipping-card">
       <mat-card-header>
         <mat-card-title>Crear usuario</mat-card-title>
@@ -7,31 +7,31 @@
         <div class="row">
             <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Primer nombre" formControlName="firstName">
-              <mat-error *ngIf="form.controls['firstName'].hasError('required')">
+              <input matInput placeholder="Primer nombre" formControlName="first_name">
+              <mat-error *ngIf="form.controls['first_name'].hasError('required')">
                 Primer nombre es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Segundo nombre" formControlName="secondName">
+              <input matInput placeholder="Segundo nombre" formControlName="second_name">
             </mat-form-field>
           </div>
         </div>
         <div class="row">
             <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Apellido paterno" formControlName="lastName">
-              <mat-error *ngIf="form.controls['lastName'].hasError('required')">
+              <input matInput placeholder="Apellido paterno" formControlName="last_name">
+              <mat-error *ngIf="form.controls['last_name'].hasError('required')">
                  Apellido paterno es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Apellido materno" formControlName="secondLastName">
-              <mat-error *ngIf="form.controls['secondLastName'].hasError('required')">
+              <input matInput placeholder="Apellido materno" formControlName="second_last_name">
+              <mat-error *ngIf="form.controls['second_last_name'].hasError('required')">
                 Apellido materno es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
@@ -68,7 +68,7 @@
         <div class="row">
           <div class="col">
               <h5>Rol</h5>
-            <mat-radio-group formControlName="role">
+            <mat-radio-group formControlName="role_id">
               <mat-radio-button value="1">Médico</mat-radio-button>
               <mat-radio-button value="2">Farmacéutico</mat-radio-button>
               <mat-radio-button value="3">Administrador</mat-radio-button>
@@ -77,12 +77,12 @@
                 rol es requerido <strong>required</strong>
               </mat-error>
           </div>
-          <ng-container *ngIf="form.controls['role']?.value === '1'">
+          <ng-container *ngIf="form.controls['role_id']?.value === '1'">
             <div class="col">
                 <h5>Especialidad médica</h5>
                 <mat-form-field appearance="fill">
                     <mat-label>Choose one</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="specialty_id">
                         <ng-container *ngFor="let specialty of specialties">
                             <mat-option value={{specialty.id}}>{{specialty.name}}</mat-option>
                         </ng-container>
@@ -93,7 +93,7 @@
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button [disabled]="!form.valid" mat-raised-button color="primary" type="submit">Submit</button>
       </mat-card-actions>
     </mat-card>
   </form>

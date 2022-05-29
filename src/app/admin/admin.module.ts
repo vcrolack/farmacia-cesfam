@@ -9,6 +9,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { ProfileComponent } from './components/dashboard/components/profile/profile.component';
 import { PatientsComponent } from './components/dashboard/components/patients/patients.component';
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
+import { StockComponent } from './components/stock/stock.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PrescriptionFormComponent } from './components/prescription-form/prescr
     NavComponent,
     ProfileComponent,
     PatientsComponent,
-    PrescriptionFormComponent
+    PrescriptionFormComponent,
+    StockComponent
   ],
   imports: [
     CommonModule,

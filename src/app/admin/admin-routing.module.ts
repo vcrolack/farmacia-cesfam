@@ -4,6 +4,7 @@ import { LoginGuard } from '../auth/guards/login/login.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavComponent } from './components/nav/nav.component';
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
+import { StockComponent } from './components/stock/stock.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
         path: 'prescription',
         canActivate: [LoginGuard],
         component: PrescriptionFormComponent
+      },
+      {
+        path: 'stock',
+        canActivate: [LoginGuard],
+        component: StockComponent
       }
     ]
   }

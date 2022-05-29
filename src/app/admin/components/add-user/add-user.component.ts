@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-add-user',
@@ -20,6 +28,18 @@ export class AddUserComponent {
     email: [null, Validators.required],
     specialty: [null]
   });
+
+  selected = new FormControl('valid', [Validators.required, Validators.pattern('valid')]);
+
+  selectFormControl = new FormControl('valid', [Validators.required, Validators.pattern('valid')]);
+
+  matcher = new MyErrorStateMatcher();
+
+  specialties: any[] = [
+    {id: 1, name: 'Cardiologo'},
+    {id: 2, name: 'General'}
+  ]
+  
 
   constructor(private fb: FormBuilder) {}
 

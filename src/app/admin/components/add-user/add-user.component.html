@@ -80,11 +80,14 @@
           <ng-container *ngIf="form.controls['role']?.value === '1'">
             <div class="col">
                 <h5>Especialidad médica</h5>
-              <mat-radio-group formControlName="specialty">
-                <mat-radio-button value="1">Médico</mat-radio-button>
-                <mat-radio-button value="2">Farmacéutico</mat-radio-button>
-                <mat-radio-button value="3">Administrador</mat-radio-button>
-              </mat-radio-group>
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose one</mat-label>
+                    <mat-select>
+                        <ng-container *ngFor="let specialty of specialties">
+                            <mat-option value={{specialty.id}}>{{specialty.name}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                  </mat-form-field>
             </div>
           </ng-container>
         </div>

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from '../../services/auth/auth.service';
+import { User } from 'src/app/core/models/user';
+import { LoginModel } from 'src/app/core/models/loginModel';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +15,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  user!: User;
 
   mensajesErrores = {
     email: [
@@ -29,7 +33,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.loginForm = this.formBuilder.group({
 
@@ -39,7 +44,7 @@ export class LoginComponent implements OnInit {
         Validators.maxLength(9)
       ])
       ),
-      pass: new FormControl("", Validators.compose([
+      password: new FormControl("", Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(25),
@@ -52,17 +57,31 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async loginUser(data: any) {
+  async loginUser(data: LoginModel) {
+    console.log(data)
     
     await this.authService.loginUser(data)
     .then(
-      res => {
-        console.log(res)
-        if (localStorage.getItem('isLogged') === 'true') {
-          this.router.navigateByUrl('admin/dashboard')
-        } else {
-          console.log('no pasa nah')
+      (res: any) => {
+        localStorage.setItem('isLogged', 'true');
+        let user: User = {
+          id: res.id,
+          first_name: res.first_name,
+          second_name: res.second_name,
+          last_name: res.last_name,
+          second_last_name: res.second_last_name,
+          specialty_id: res.specialty_id,
+          rut: res.rut
         }
+        this.user = user;
+        localStorage.setItem('user', JSON.stringify(user));
+        this.router.navigateByUrl("/admin/dashboard");
+      }
+    )
+    .catch(
+      () => {
+        this.loginForm.reset();
+        this._snackBar.open('Rut o contraseña incorrecta.', 'Cerrar');
       }
     )
   }

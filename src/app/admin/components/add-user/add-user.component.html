@@ -48,7 +48,7 @@
           </div>
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Contraseña" formControlName="password">
+              <input matInput placeholder="Contraseña" formControlName="password" type="password">
               <mat-error *ngIf="form.controls['password'].hasError('required')">
                 Contraseña es <strong>requerida</strong>
               </mat-error>
@@ -74,7 +74,7 @@
               <mat-radio-button value="3">Administrador</mat-radio-button>
             </mat-radio-group>
             <mat-error *ngIf="form.controls['email'].hasError('required')">
-                rol es requerido <strong>required</strong>
+                rol es <strong>requerido</strong>
               </mat-error>
           </div>
           <ng-container *ngIf="form.controls['role_id']?.value === '1'">

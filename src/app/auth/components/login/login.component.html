@@ -21,12 +21,12 @@
               </div>
               <div class="container-contrasena">
                 <label for="">Contraseña</label>
-                <input formControlName="pass" class="form-control" type="text">
+                <input formControlName="password" class="form-control" type="password">
                 <div class="validation-error">
                   <ng-container *ngFor="let validation of mensajesErrores.contrasena">
                     <div
-                      *ngIf="(loginForm.get('pass')!.hasError(validation.type)) &&
-                      (loginForm.get('pass')!.dirty || loginForm.get('pass')!.touched)"
+                      *ngIf="(loginForm.get('password')!.hasError(validation.type)) &&
+                      (loginForm.get('password')!.dirty || loginForm.get('password')!.touched)"
                     >
                     <p class="text-warning ">{{validation.message}}</p>
                   </div>
@@ -44,7 +44,7 @@
             <p>¿Olvidaste tu contraseña? <a href="">Pulsa aquí</a></p>
         </div>
         <div class="col-12 d-flex justify-content-center pt-5 pb-3">
-          <button mat-raised-button type="submit" color="primary">Iniciar sesión</button>
+          <button mat-raised-button [disabled]="!loginForm.valid" type="submit" color="primary">Iniciar sesión</button>
         </div>
       </form>
     </div>

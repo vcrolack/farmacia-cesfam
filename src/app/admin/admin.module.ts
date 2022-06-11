@@ -12,6 +12,8 @@ import { PrescriptionFormComponent } from './components/prescription-form/prescr
 import { StockComponent } from './components/stock/stock.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserService } from '../services/user.service';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { UserService } from '../services/user.service';
     PatientsComponent,
     PrescriptionFormComponent,
     StockComponent,
-    AddUserComponent
+    AddUserComponent,
+    EditUserComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

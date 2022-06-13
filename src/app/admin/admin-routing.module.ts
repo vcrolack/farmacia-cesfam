@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from '../auth/guards/login/login.guard';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { NavComponent } from './components/nav/nav.component';
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
 import  {StockComponent} from './components/stock/stock.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   {
@@ -28,9 +30,19 @@ const routes: Routes = [
         component: StockComponent
       },
       {
+        path: 'users',
+        canActivate: [LoginGuard],
+        component: UsersComponent
+      },
+      {
         path: 'add-user',
         canActivate: [LoginGuard],
         component: AddUserComponent
+      },
+      {
+        path: 'edit-user/:id',
+        canActivate: [LoginGuard],
+        component: EditUserComponent
       }
     ]
   }

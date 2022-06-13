@@ -5,5 +5,6 @@ export interface User {
     last_name: string;
     second_last_name: string;
     specialty_id?: number;
+    role_id: number;
     rut: string;
 }

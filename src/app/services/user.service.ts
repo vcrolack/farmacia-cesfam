@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs';
+import { User } from '../core/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,28 +13,13 @@ export class UserService {
     description: ''
   }
 
+  users!: User[]
+
   constructor(
     private http: HttpClient
   ) { }
 
   postUser(data: any) {
-    // const URL = 'http://localhost:8000/users';
-    // let headers = new HttpHeaders({
-    //   'content-type': 'application/json',
-    // })
-    // let options = {headers: headers}
-    let newUser = {
-      "email": data.email,
-      "first_name": data.first_name,
-      "second_name": data.second_name,
-      "last_name": data.last_name,
-      "password": data.password,
-      "role_id": data.role_id,
-      "rut": data.rut,
-      "specialty_id": data.specialty_id
-    }
-    console.log(newUser)
-    //return this.http.post<any>(URL, newUser, options)
     return new Promise((accept, reject) => {
       const URL = 'http://localhost:8000/users';
       let headers = new HttpHeaders({
@@ -58,8 +43,22 @@ export class UserService {
         }
       )
     })
+  }
 
-
-
+  getUsers(): Promise<User[]> {
+    return new Promise((accept, reject) => {
+      const URL = 'http://localhost:8000/users'
+      this.http.get(URL).subscribe(
+        (data: any) => {
+          this.users = data;
+          if (this.users) {
+            accept(this.users);
+          }
+        },
+        error => {
+          reject();
+        }
+      )
+    })
   }
 }

@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Rut</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Especialidad</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let user of users">
+      <tr>
+        <th scope="row">{{user.rut}}</th>
+        <td>{{user.first_name}} {{user.second_name}}</td>
+        <td> {{user.last_name}} {{user.second_last_name}}</td>
+        <td>{{user.role_id}}</td>
+        <td>{{user.specialty_id}}</td>
+        <td>
+          <a mat-button color="primary" href="#">Editar</a>
+          <a mat-button color="warn" href="#">Eliminar</a>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

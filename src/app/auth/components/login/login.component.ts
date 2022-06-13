@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
           last_name: res.last_name,
           second_last_name: res.second_last_name,
           specialty_id: res.specialty_id,
+          role_id: res.role_id,
           rut: res.rut
         }
         this.user = user;

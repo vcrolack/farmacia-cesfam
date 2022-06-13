@@ -15,6 +15,12 @@ export class UserService {
 
   users!: User[]
 
+  roles: Object[] = [
+    {id: 1, name: 'Médico'},
+    {id: 2, name: 'Farmacéutico'},
+    {id: 3, name: 'Administrador'}
+  ]
+
   constructor(
     private http: HttpClient
   ) { }
@@ -51,6 +57,7 @@ export class UserService {
       this.http.get(URL).subscribe(
         (data: any) => {
           this.users = data;
+
           if (this.users) {
             accept(this.users);
           }

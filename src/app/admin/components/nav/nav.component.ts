@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth/auth.service';
-import { faHome, IconDefinition, faFileMedical, faCubes, faClipboardList, faQuestionCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faHome, IconDefinition, faFileMedical, faCubes, faClipboardList, faQuestionCircle, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -25,6 +25,7 @@ export class NavComponent {
   faClipboardList: IconDefinition = faClipboardList;
   faQuestionCircle: IconDefinition = faQuestionCircle;
   faUserPlus: IconDefinition = faUserPlus
+  faUser: IconDefinition = faUser
 
   constructor(
     private breakpointObserver: BreakpointObserver,

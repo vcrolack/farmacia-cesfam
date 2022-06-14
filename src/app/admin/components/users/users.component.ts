@@ -34,4 +34,8 @@ export class UsersComponent implements OnInit {
     return this.users
   }
 
+  async deleteUser (rut: string) {
+    this.userService.deleteUser(rut);
+  }
+
 }

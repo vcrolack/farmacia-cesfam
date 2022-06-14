@@ -22,7 +22,7 @@
         <td>{{user.specialty_id}}</td>
         <td>
           <a mat-button color="primary" href="#">Editar</a>
-          <a mat-button color="warn" href="#">Eliminar</a>
+          <button type="button" mat-button color="warn" (click)="deleteUser(user.rut)">Eliminar</button>
         </td>
       </tr>
     </ng-container>

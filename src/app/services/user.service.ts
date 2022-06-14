@@ -68,4 +68,18 @@ export class UserService {
       )
     })
   }
+
+  deleteUser(rut: string) {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/users/${rut}`;
+      this.http.delete(URL).subscribe(
+        (data: any) => {
+          accept(data);
+        },
+        error => {
+          reject(error);
+        }
+      )
+    })
+  }
 }

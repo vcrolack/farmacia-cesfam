@@ -21,7 +21,7 @@
         <td>{{user.role_id}}</td>
         <td>{{user.specialty_id}}</td>
         <td>
-          <a mat-button color="primary" href="#">Editar</a>
+          <a mat-button color="primary" routerLink="/admin/edit-user/{{user.rut}}">Editar</a>
           <button type="button" mat-button color="warn" (click)="deleteUser(user.rut)">Eliminar</button>
         </td>
       </tr>

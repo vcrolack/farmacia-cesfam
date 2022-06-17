@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params } from '@angular/router';
+import { faArrowLeft, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 import { UserService } from 'src/app/services/user.service';
 import { SpecialtyService } from 'src/app/services/specialty.service';
@@ -26,6 +27,8 @@ export class EditUserComponent implements OnInit {
 
   specialties!: Specialty[];
   user!: User;
+
+  faArrowLeft: IconDefinition = faArrowLeft;
 
   constructor(
     private fb: FormBuilder,

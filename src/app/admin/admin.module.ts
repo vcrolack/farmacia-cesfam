@@ -7,7 +7,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { NavComponent } from './components/nav/nav.component';
 import { ProfileComponent } from './components/dashboard/components/profile/profile.component';
-import { PatientsComponent } from './components/dashboard/components/patients/patients.component';
+import { PatientsComponent as PatientsDashboard } from './components/dashboard/components/patients/patients.component';
+import { PatientsComponent } from './components/patients/patients.component';
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
 import { StockComponent } from './components/stock/stock.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
@@ -21,6 +22,7 @@ import { UsersComponent } from './components/users/users.component';
     NavComponent,
     ProfileComponent,
     PatientsComponent,
+    PatientsDashboard,
     PrescriptionFormComponent,
     StockComponent,
     AddUserComponent,

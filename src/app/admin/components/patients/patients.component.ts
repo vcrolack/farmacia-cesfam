@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IconDefinition, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-patients',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patients.component.scss']
 })
 export class PatientsComponent implements OnInit {
+
+  faPlus: IconDefinition = faPlus;
 
   constructor() { }
 

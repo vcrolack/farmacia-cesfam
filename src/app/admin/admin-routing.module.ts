@@ -40,7 +40,7 @@ const routes: Routes = [
         component: AddUserComponent
       },
       {
-        path: 'edit-user/:id',
+        path: 'edit-user/:rut',
         canActivate: [LoginGuard],
         component: EditUserComponent
       }

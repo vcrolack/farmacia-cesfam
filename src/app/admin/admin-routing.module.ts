@@ -5,6 +5,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { NavComponent } from './components/nav/nav.component';
+import { PatientsComponent } from './components/patients/patients.component';
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
 import  {StockComponent} from './components/stock/stock.component';
 import { UsersComponent } from './components/users/users.component';
@@ -43,6 +44,11 @@ const routes: Routes = [
         path: 'edit-user/:rut',
         canActivate: [LoginGuard],
         component: EditUserComponent
+      },
+      {
+        path: 'patients',
+        canActivate: [LoginGuard],
+        component: PatientsComponent
       }
     ]
   }

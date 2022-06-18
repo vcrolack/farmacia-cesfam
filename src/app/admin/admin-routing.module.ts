@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from '../auth/guards/login/login.guard';
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
@@ -49,6 +50,11 @@ const routes: Routes = [
         path: 'patients',
         canActivate: [LoginGuard],
         component: PatientsComponent
+      },
+      {
+        path: 'add-patient',
+        canActivate: [LoginGuard],
+        component: AddPatientComponent
       }
     ]
   }

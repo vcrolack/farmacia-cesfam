@@ -15,6 +15,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserService } from '../services/user.service';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { UsersComponent } from './components/users/users.component';
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UsersComponent } from './components/users/users.component';
     StockComponent,
     AddUserComponent,
     EditUserComponent,
-    UsersComponent
+    UsersComponent,
+    AddPatientComponent
   ],
   imports: [
     CommonModule,

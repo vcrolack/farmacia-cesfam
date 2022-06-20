@@ -19,6 +19,21 @@ export class PatientService {
     private http: HttpClient
   ) { }
 
+  getPatients(): Promise<Patient[]> {
+    return new Promise((accept, reject) => {
+      const URL = 'http://localhost:8000/patients';
+      this.http.get(URL).subscribe(
+        (data: any) => {
+          this.patients = data;
+          if (this.patients) {
+            accept(this.patients)
+          }
+        },
+        error => reject()
+      )
+    })
+  }
+
   createPatient(data: any) {
     return new Promise((accept, reject) => {
       const URL = 'http://localhost:8000/patients';

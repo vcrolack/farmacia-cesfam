@@ -30,7 +30,7 @@
         <td>{{patient.email}}</td>
         <td>{{patient.phone}}</td>
         <td>
-          <a mat-button color="primary">Perfil</a>
+          <a mat-button color="primary" routerLink="/admin/patient-profile/{{patient.rut}}">Perfil</a>
           <a mat-button color="primary" routerLink="/admin/edit-patient/{{patient.rut}}">Editar</a>
         </td>
       </tr>

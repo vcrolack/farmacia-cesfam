@@ -1,6 +1,8 @@
 <div class="fluid-container my-3 px-4 d-flex justify-content-between">
   <a routerLink="/admin/patients" mat-raised-button color="secondary"> <fa-icon class="me-1" [icon]="faArrowLeft"></fa-icon> Volver</a>
-  <a mat-raised-button> <fa-icon [icon]="faFileMedical"></fa-icon> Crear Prescripción</a>
+  <ng-container *ngIf="patient">
+    <a routerLink="/admin/add-prescription/{{patient.id}}" mat-raised-button> <fa-icon [icon]="faFileMedical"></fa-icon> Crear Prescripción</a>
+  </ng-container>
 </div>
 <mat-card *ngIf="patient" class="shipping-card">
   <ng-container >

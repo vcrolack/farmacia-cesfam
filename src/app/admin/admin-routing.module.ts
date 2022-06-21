@@ -24,7 +24,7 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
-        path: 'prescription',
+        path: 'add-prescription/:id',
         canActivate: [LoginGuard],
         component: PrescriptionFormComponent
       },

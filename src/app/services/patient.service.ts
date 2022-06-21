@@ -39,7 +39,7 @@ export class PatientService {
       const URL = `http://localhost:8000/patients/${rut}`;
       this.http.get(URL).subscribe(
         (data: any) => {
-          console.log(data);
+          accept(data);
         }
       )
     })

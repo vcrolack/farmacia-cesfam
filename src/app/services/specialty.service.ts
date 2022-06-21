@@ -8,6 +8,7 @@ import { Specialty } from '../core/models/specialty';
 export class SpecialtyService {
 
   specialties!: Specialty[];
+  specialty!: Specialty;
 
   constructor(
     private http: HttpClient
@@ -21,6 +22,21 @@ export class SpecialtyService {
             this.specialties = data;
             if (this.specialties) {
               accept(this.specialties)
+            }
+          },
+          error => reject()
+        )
+      })
+    }
+
+    getSpecialty(id: number) {
+      return new Promise((accept, reject) => {
+        const URL = `http://localhost:8000/specialties/${id}`;
+        this.http.get(URL).subscribe(
+          (data: any) => {
+            this.specialty = data;
+            if (this.specialty) {
+              accept(this.specialty);
             }
           },
           error => reject()

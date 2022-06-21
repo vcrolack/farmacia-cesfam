@@ -34,6 +34,17 @@ export class PatientService {
     })
   }
 
+  getPatient(rut: string): Promise<Patient> {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/patients/${rut}`;
+      this.http.get(URL).subscribe(
+        (data: any) => {
+          console.log(data);
+        }
+      )
+    })
+  }
+
   createPatient(data: any) {
     return new Promise((accept, reject) => {
       const URL = 'http://localhost:8000/patients';
@@ -54,6 +65,32 @@ export class PatientService {
             state: 'error',
             description: 'Ha ocurrido un error.'
           }
+          reject(this.msg);
+        }
+      )
+    })
+  }
+
+  updatePatient(rut: string, data: Patient) {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/patients/${rut}`;
+      let headers = new HttpHeaders({
+        'content-type': 'application/json'
+      });
+      let options = {headers: headers};
+      this.http.put(URL, data, options).subscribe(
+        (data: any) => {
+          this.msg = {
+            state: 'success',
+            description: 'Paciente editado'
+          }
+          accept(this.msg);
+        },
+        error => {
+          this.msg = {
+            state: 'error',
+            description: 'Ha ocurrido un error'
+          };
           reject(this.msg);
         }
       )

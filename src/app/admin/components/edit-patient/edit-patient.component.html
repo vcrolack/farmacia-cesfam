@@ -1,0 +1,88 @@
+<div class="fluid-container my-3 ps-4 d-flex justify-content-start">
+  <a routerLink="/admin/patients" mat-raised-button color="secondary"> <fa-icon class="me-1" [icon]="faArrowLeft"></fa-icon> Volver</a>
+</div>
+<form [formGroup]="form"  (ngSubmit)="onSubmit(form.value)" method="post">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Crear usuario</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+          <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Primer nombre" formControlName="first_name">
+            <mat-error *ngIf="form.controls['first_name'].hasError('required')">
+              Primer nombre es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Segundo nombre" formControlName="second_name">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Apellido paterno" formControlName="last_name">
+            <mat-error *ngIf="form.controls['last_name'].hasError('required')">
+              Apellido paterno es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Apellido materno" formControlName="second_last_name">
+            <mat-error *ngIf="form.controls['second_last_name'].hasError('required')">
+              Apellido materno es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="form.controls['email'].hasError('required')">
+              Email es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Fecha de nacimiento" formControlName="birth_date" type="date">
+            <mat-error *ngIf=" form.controls['birth_date'].hasError('required') ">
+              Fecha de nacimiento es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Celular" formControlName="phone" type="text">
+            <mat-error *ngIf=" form.controls['phone'].hasError('required') ">
+              Celular es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Dirección" formControlName="address" type="text">
+            <mat-error *ngIf="form.controls['address'].hasError('required')">
+              Dirección es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="!form.valid" mat-raised-button color="primary" type="submit">Enviar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

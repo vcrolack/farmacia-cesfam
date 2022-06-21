@@ -4,6 +4,7 @@ import { LoginGuard } from '../auth/guards/login/login.guard';
 import { AddPatientComponent } from './components/add-patient/add-patient.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { NavComponent } from './components/nav/nav.component';
 import { PatientsComponent } from './components/patients/patients.component';
@@ -55,6 +56,11 @@ const routes: Routes = [
         path: 'add-patient',
         canActivate: [LoginGuard],
         component: AddPatientComponent
+      },
+      {
+        path: 'edit-patient/:rut',
+        canActivate: [LoginGuard],
+        component: EditPatientComponent
       }
     ]
   }

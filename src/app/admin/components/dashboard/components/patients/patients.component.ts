@@ -21,7 +21,7 @@ const ELEMENT_DATA: Patient[] = [
 ];
 
 @Component({
-  selector: 'app-patients',
+  selector: 'app-patients-dashboard',
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.scss']
 })

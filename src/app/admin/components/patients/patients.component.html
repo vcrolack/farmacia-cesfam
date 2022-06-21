@@ -1,1 +1,39 @@
-<p>patients works!</p>
+<div class="container pt-2">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>Pacientes</h1>
+    </div>
+    <div class="col-6 d-flex flex-column align-items-end">
+      <a routerLink="/admin/add-patient" mat-raised-button color="secondary"> <fa-icon [icon]="faPlus"></fa-icon> Agregar paciente</a>
+    </div>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Rut</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Email</th>
+      <th scope="col">Celular</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let patient of patients">
+      <tr>
+        <th scope="row">{{patient.rut}}</th>
+        <td>{{patient.first_name}} {{patient.second_name}}</td>
+        <td>{{patient.last_name}} {{patient.second_last_name}}</td>
+        <td>{{patient.email}}</td>
+        <td>{{patient.phone}}</td>
+        <td>
+          <a mat-button color="primary" routerLink="/admin/patient-profile/{{patient.rut}}">Perfil</a>
+          <a mat-button color="primary" routerLink="/admin/edit-patient/{{patient.rut}}">Editar</a>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

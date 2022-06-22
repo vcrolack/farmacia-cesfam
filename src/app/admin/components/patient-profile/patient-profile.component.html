@@ -1,50 +1,48 @@
 <div class="fluid-container my-3 px-4 d-flex justify-content-between">
   <a routerLink="/admin/patients" mat-raised-button color="secondary"> <fa-icon class="me-1" [icon]="faArrowLeft"></fa-icon> Volver</a>
   <ng-container *ngIf="patient">
-    <a routerLink="/admin/add-prescription/{{patient.id}}" mat-raised-button> <fa-icon [icon]="faFileMedical"></fa-icon> Crear Prescripción</a>
+    <a routerLink="/admin/add-prescription/{{patient.rut}}" mat-raised-button> <fa-icon [icon]="faFileMedical"></fa-icon> Crear Prescripción</a>
   </ng-container>
 </div>
 <mat-card *ngIf="patient" class="shipping-card">
-  <ng-container >
-    <mat-card-header><h1>{{patient.first_name}} {{patient.second_name}} {{patient.last_name}} {{patient.second_last_name}}</h1></mat-card-header>
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h3><strong>Información paciente</strong></h3>
-          <p><strong>Primer nombre: </strong> {{patient.first_name}}</p>
-          <p><strong>Segundo nombre:</strong> {{patient.second_name}}</p>
-          <p><strong>Apellido paterno:</strong> {{patient.last_name}}</p>
-          <p><strong>Apellido materno:</strong> {{patient.second_last_name}}</p>
-          <p><strong>Rut:</strong> {{patient.rut}}</p>
-          <p><strong>Email:</strong> {{patient.email}}</p>
-          <p><strong>Celular:</strong> {{patient.phone}}</p>
-          <p><strong>Fecha de nacimiento:</strong> {{patient.birth_date}}</p>
-          <p><strong>Dirección:</strong> {{patient.address}}</p>
-        </div>
-        <div class="col-6">
-          <h3><strong>Prescripciones</strong></h3>
-          <table class="table table-striped">
-            <thead>
+  <mat-card-header><h1>{{patient.first_name}} {{patient.second_name}} {{patient.last_name}} {{patient.second_last_name}}</h1></mat-card-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h3><strong>Información paciente</strong></h3>
+        <p><strong>Primer nombre: </strong> {{patient.first_name}}</p>
+        <p><strong>Segundo nombre:</strong> {{patient.second_name}}</p>
+        <p><strong>Apellido paterno:</strong> {{patient.last_name}}</p>
+        <p><strong>Apellido materno:</strong> {{patient.second_last_name}}</p>
+        <p><strong>Rut:</strong> {{patient.rut}}</p>
+        <p><strong>Email:</strong> {{patient.email}}</p>
+        <p><strong>Celular:</strong> {{patient.phone}}</p>
+        <p><strong>Fecha de nacimiento:</strong> {{patient.birth_date}}</p>
+        <p><strong>Dirección:</strong> {{patient.address}}</p>
+      </div>
+      <div class="col-6">
+        <h3><strong>Prescripciones</strong></h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Patología</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container>
               <tr>
-                <th scope="col">Fecha</th>
-                <th scope="col">Patología</th>
-                <th>Acciones</th>
+                <th scope="row">01/02/2022</th>
+                <td>Mordedura de gato</td>
+                <td>
+                  <a mat-button color="primary" >Ver más</a>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              <ng-container>
-                <tr>
-                  <th scope="row">01/02/2022</th>
-                  <td>Mordedura de gato</td>
-                  <td>
-                    <a mat-button color="primary" >Ver más</a>
-                  </td>
-                </tr>
-              </ng-container>
-            </tbody>
-          </table>
-        </div>
+            </ng-container>
+          </tbody>
+        </table>
       </div>
     </div>
-  </ng-container>
+  </div>
 </mat-card>

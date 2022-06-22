@@ -1,91 +1,23 @@
-<form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="form" novalidate (ngSubmit)="onSubmit(form.value)">
     <mat-card class="shipping-card">
       <mat-card-header>
         <mat-card-title>Formulario de prescripción</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div class="row">
-            <h3>Médico</h3>
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Nombre Médico" formControlName="company">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input matInput placeholder="Especialidad" formControlName="company">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-            <h3>Paciente</h3>
-            <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Primer nombre" formControlName="firstName">
-              <mat-error *ngIf="form.controls['firstName'].hasError('required')">
-                First name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Segundo nombre" formControlName="secondName">
-              <mat-error *ngIf="form.controls['secondName'].hasError('required')">
-                Last name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-            <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Apellido paterno" formControlName="lastName">
-              <mat-error *ngIf="form.controls['lastName'].hasError('required')">
-                First name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Apellido materno" formControlName="secondLastName">
-              <mat-error *ngIf="form.controls['secondLastName'].hasError('required')">
-                Last name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <textarea matInput placeholder="Patología" formControlName="patology"></textarea>
+              <input matInput placeholder="Patología" formControlName="patology">
               <mat-error *ngIf="form.controls['patology'].hasError('required')">
                 Address is <strong>required</strong>
               </mat-error>
             </mat-form-field>
           </div>
-        </div>
-        <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Dirección" formControlName="address">
-              <mat-error *ngIf="form.controls['address'].hasError('required')">
-                City is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="col">
-            <mat-form-field class="full-width">
-                <input matInput placeholder="Celular" formControlName="phone">
-                <mat-error *ngIf="form.controls['phone'].hasError('required')">
-                  City is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput #postalCode placeholder="Email" type="email" formControlName="email">
-              <mat-error *ngIf="form.controls['email'].hasError('required')">
-                  Email is <strong>required</strong>
+              <input matInput placeholder="Fecha de prescripción" formControlName="prescription_date" type="date">
+              <mat-error *ngIf=" form.controls['prescription_date'].hasError('required') ">
+                Fecha de nacimiento es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -93,18 +25,27 @@
         <div class="row">
           <div class="col">
               <h5>Tipo medicamento</h5>
-            <mat-radio-group formControlName="medicament">
-              <mat-radio-button value="analgesic">Analgésico</mat-radio-button>
-              <mat-radio-button value="ansiolitic">Ansiolítico</mat-radio-button>
-              <mat-radio-button value="anesthetic">Anestésico</mat-radio-button>
-              <mat-radio-button value="antibiotic">Antibiótico</mat-radio-button>
+            <mat-radio-group formControlName="type_medicament_id">
+              <ng-container *ngFor="let typeMedicament of typesMedicaments">
+                <mat-radio-button value={{typeMedicament.id}}>{{typeMedicament.type}}</mat-radio-button>
+              </ng-container>
             </mat-radio-group>
           </div>
+          <div class="col">
+            <h5>Medicamento</h5>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose one</mat-label>
+                <mat-select formControlName="medicament">
+                    <ng-container *ngFor="let medicament of medicaments">
+                        <mat-option value={{medicament.id}}>{{medicament.name}}</mat-option>
+                    </ng-container>
+                </mat-select>
+              </mat-form-field>
+        </div>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="primary" type="submit">Crear</button>
       </mat-card-actions>
     </mat-card>
   </form>
-  

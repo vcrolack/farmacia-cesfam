@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from '../auth/guards/login/login.guard';
+import { AddMedicamentComponent } from './components/add-medicament/add-medicament.component';
 import { AddPatientComponent } from './components/add-patient/add-patient.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -27,11 +28,6 @@ const routes: Routes = [
         path: 'add-prescription/:rut',
         canActivate: [LoginGuard],
         component: PrescriptionFormComponent
-      },
-      {
-        path: 'stock',
-        canActivate: [LoginGuard],
-        component: StockComponent
       },
       {
         path: 'users',
@@ -67,6 +63,16 @@ const routes: Routes = [
         path: 'patient-profile/:rut',
         canActivate: [LoginGuard],
         component: PatientProfileComponent
+      },
+      {
+        path: 'stock',
+        canActivate: [LoginGuard],
+        component: StockComponent
+      },
+      {
+        path: 'add-medicament',
+        canActivate: [LoginGuard],
+        component: AddMedicamentComponent
       }
     ]
   }

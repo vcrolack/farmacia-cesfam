@@ -1,0 +1,95 @@
+<div class="fluid-container my-3 ps-4 d-flex justify-content-start">
+  <a routerLink="/admin/stock" mat-raised-button color="secondary"> <fa-icon class="me-1" [icon]="faArrowLeft"></fa-icon> Volver</a>
+</div>
+<form [formGroup]="form" novalidate (ngSubmit)="onSubmit(form.value)">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Agregar medicamento</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre medicamento" formControlName="name">
+            <mat-error *ngIf="form.controls['name'].hasError('required')">
+              Nombre es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Gramaje" type="number" formControlName="grammage">
+            <mat-error *ngIf=" form.controls['grammage'].hasError('required') ">
+              Fecha de nacimiento es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Stock" formControlName="stock" type="number">
+            <mat-error *ngIf="form.controls['stock'].hasError('required')">
+              Stock es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Formato medicamento" formControlName="format_medicament">
+            <mat-error *ngIf=" form.controls['format_medicament'].hasError('required') ">
+              Formato de medicamento es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Fecha de caducidad" formControlName="caducity_date" type="date">
+            <mat-error *ngIf=" form.controls['caducity_date'].hasError('required') ">
+              Fecha de caducidad es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre laboratorio" formControlName="laboratory_name" type="number">
+            <mat-error *ngIf="form.controls['laboratory_name'].hasError('required')">
+              Nombre de laboratorio es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Agente principal" formControlName="principal_agent">
+            <mat-error *ngIf=" form.controls['principal_agent'].hasError('required') ">
+              Agente principal es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Agente secundario" formControlName="secondary_agent">
+            <mat-error *ngIf=" form.controls['secondary_agent'].hasError('required') ">
+              Agente secundario es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <h5>Tipo medicamento</h5>
+          <mat-radio-group formControlName="type_medicament_id">
+            <ng-container *ngFor="let typeMedicament of typesMedicaments">
+              <mat-radio-button value={{typeMedicament.id}}>{{typeMedicament.type}}</mat-radio-button>
+            </ng-container>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Crear</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

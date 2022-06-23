@@ -19,7 +19,6 @@ export class PatientsComponent implements OnInit {
 
   async ngOnInit() {
     await this.getPatients();
-    console.log(this.patients);
   }
 
   async getPatients() {

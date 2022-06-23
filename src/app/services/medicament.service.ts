@@ -8,6 +8,7 @@ import { Medicament } from '../core/models/medicament';
 })
 export class MedicamentService {
 
+  medicaments!: Medicament[];
   msg: Object = {
     state: '',
     description: ''
@@ -15,6 +16,21 @@ export class MedicamentService {
   constructor(
     private http: HttpClient
   ) { }
+
+  getMedicaments(): Promise<Medicament[]> {
+    return new Promise((accept, reject) => {
+      const URL = 'http://localhost:8000/medicaments';
+      this.http.get(URL).subscribe(
+        (data: any) => {
+          this.medicaments = data;
+          if (this.medicaments) {
+            accept(this.medicaments);
+          }
+        },
+        error => reject()
+      )
+    })
+  }
 
   createMedicament(data: any) {
     return new Promise((accept, reject) => {

@@ -25,7 +25,7 @@
         <th>{{medicament.caducity_date}}</th>
         <th>
           <a mat-button color="primary">Ver más</a>
-          <a mat-button color="primary">Editar</a>
+          <a routerLink="/admin/edit-medicament/{{medicament.id}}" mat-button color="primary">Editar</a>
           <button type="button" mat-button color="warn" (click)="deleteMedicament(medicament.id)">Eliminar</button>
         </th>
       </tr>

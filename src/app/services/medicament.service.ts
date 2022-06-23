@@ -9,6 +9,7 @@ import { Medicament } from '../core/models/medicament';
 export class MedicamentService {
 
   medicaments!: Medicament[];
+  medicament!: Medicament;
   msg: Object = {
     state: '',
     description: ''
@@ -25,6 +26,21 @@ export class MedicamentService {
           this.medicaments = data;
           if (this.medicaments) {
             accept(this.medicaments);
+          }
+        },
+        error => reject()
+      )
+    })
+  }
+
+  getMedicament(id: number): Promise<Medicament> {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/medicaments/${id}`;
+      this.http.get(URL).subscribe(
+        (data: any) => {
+          this.medicament = data;
+          if (this.medicament) {
+            accept(this.medicament);
           }
         },
         error => reject()

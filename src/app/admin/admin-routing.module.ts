@@ -8,6 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditMedicamentComponent } from './components/edit-medicament/edit-medicament.component';
 import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { MedicamentComponent } from './components/medicament/medicament.component';
 import { NavComponent } from './components/nav/nav.component';
 import { PatientProfileComponent } from './components/patient-profile/patient-profile.component';
 import { PatientsComponent } from './components/patients/patients.component';
@@ -79,6 +80,11 @@ const routes: Routes = [
         path: 'edit-medicament/:id',
         canActivate: [LoginGuard],
         component: EditMedicamentComponent
+      },
+      {
+        path: 'medicament/:id',
+        canActivate: [LoginGuard],
+        component:MedicamentComponent
       }
     ]
   }

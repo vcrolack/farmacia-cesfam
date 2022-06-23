@@ -1,12 +1,11 @@
-<div class="fluid-container my-3 px-4 d-flex justify-content-between">
+<div class="fluid-container my-3 px-4 d-flex justify-content-start">
   <a routerLink="/admin/stock" mat-raised-button color="secondary"> <fa-icon [icon]="faArrowLeft"></fa-icon> Volver</a>
-  <a routerLink="/admin/stock" mat-raised-button color="secondary"> <fa-icon class="me-1" [icon]="faCubes"></fa-icon> Editar stock</a>
 </div>
 <mat-card *ngIf="medicament" class="shipping-card">
   <mat-card-header><h1>{{medicament.name}} - {{medicament.laboratory_name}}</h1></mat-card-header>
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-6">
         <h3><strong>Información medicamento</strong></h3>
         <p><strong>Nombre: </strong> {{medicament.name}}</p>
         <p><strong>gramaje:</strong> {{medicament.grammage}}</p>
@@ -17,6 +16,18 @@
         <p><strong>Agente principal:</strong> {{medicament.principal_agent}}</p>
         <p><strong>Agente secundario:</strong> {{medicament.secondary_agent}}</p>
         <p><strong>Fecha de caducidad:</strong> {{medicament.caducity_date}}</p>
+      </div>
+      <div class="col-6">
+        <h3> <fa-icon class="me-1" [icon]="faCubes"></fa-icon> <strong>Actualizar stock</strong></h3>
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Stock" formControlName="stock">
+            <mat-error *ngIf="form.controls['stock'].hasError('required')">
+              Primer nombre es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+          <button class="ms-2" [disabled]="!form.valid" mat-raised-button color="primary" type="submit">Submit</button>
+        </form>
       </div>
     </div>
   </div>

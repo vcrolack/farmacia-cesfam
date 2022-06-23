@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { faArrowLeft, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,7 +9,9 @@ import { Medicament } from 'src/app/core/models/medicament';
 import { TypeMedicament } from 'src/app/core/models/typeMedicament';
 
 import { TypeMedicamentService } from 'src/app/services/type-medicament.service';
+import { MedicamentService } from 'src/app/services/medicament.service';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-medicament',
   templateUrl: './add-medicament.component.html',
@@ -16,6 +20,7 @@ import { TypeMedicamentService } from 'src/app/services/type-medicament.service'
 export class AddMedicamentComponent implements OnInit {
 
   faArrowLeft: IconDefinition = faArrowLeft;
+  pipe: DatePipe = new DatePipe('en-US');
 
   form = this.fb.group({
     name: [null, Validators.required],
@@ -33,16 +38,29 @@ export class AddMedicamentComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private typeMedicamentService: TypeMedicamentService
+    private router: Router,
+    private typeMedicamentService: TypeMedicamentService,
+    private medicamentService: MedicamentService,
+    private _snackBar: MatSnackBar
   ) { }
 
   async ngOnInit() {
     this.typesMedicaments = await this.typeMedicamentService.getTypesMedicaments();
-    console.log(this.typesMedicaments)
   }
 
   onSubmit(data: any) {
-
+    data.caducity_date = this.pipe.transform(data.caducity_date, 'yyyy-MM-dd');
+    this.medicamentService.createMedicament(data).then(
+      () => {
+        this._snackBar.open('Se ha creado el medicamento', 'cerrar');
+        this.router.navigateByUrl("admin/stock");
+      }
+    )
+    .catch(
+      () => {
+        this._snackBar.open('Ha ocurrido un error', 'cerrar');
+      }
+    )
   }
 
 }

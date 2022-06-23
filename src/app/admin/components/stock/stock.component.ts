@@ -31,4 +31,9 @@ export class StockComponent implements OnInit {
     return this.medicaments;
   }
 
+  async deleteMedicament(id: number) {
+    console.log(id)
+    await this.medicamentService.deleteMedicament(id)
+  }
+
 }

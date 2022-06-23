@@ -26,7 +26,7 @@
         <th>
           <a mat-button color="primary">Ver más</a>
           <a mat-button color="primary">Editar</a>
-          <button type="button" mat-button color="warn">Eliminar</button>
+          <button type="button" mat-button color="warn" (click)="deleteMedicament(medicament.id)">Eliminar</button>
         </th>
       </tr>
     </ng-container>

@@ -10,18 +10,21 @@
       <th scope="col">Gramos</th>
       <th scope="col">Stock</th>
       <th scope="col">Formato</th>
+      <th scope="col">Caducidad</th>
       <th scope="">Acciones</th>
     </tr>
   </thead>
   <tbody>
-    <ng-container>
+    <ng-container *ngFor="let medicament of medicaments">
       <tr>
-        <th scope="row">1</th>
-        <th>Ibuprofeno</th>
-        <th>400</th>
-        <th>27</th>
-        <th>Comprimidos</th>
+        <th scope="row">{{medicament.id}}</th>
+        <th>{{medicament.name}}</th>
+        <th>{{medicament.grammage}}</th>
+        <th>{{medicament.stock}}</th>
+        <th>{{medicament.format_medicament}}</th>
+        <th>{{medicament.caducity_date}}</th>
         <th>
+          <a mat-button color="primary">Ver más</a>
           <a mat-button color="primary">Editar</a>
           <button type="button" mat-button color="warn">Eliminar</button>
         </th>

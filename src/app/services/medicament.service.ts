@@ -58,6 +58,32 @@ export class MedicamentService {
     })
   }
 
+  updateMedicament(id: number, data: any) {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/medicaments/${id}`;
+      const headers = new HttpHeaders({
+        'content-type': 'application/json'
+      })
+      const options = {headers: headers};
+      this.http.put(URL, data, options).subscribe(
+        (data) => {
+          this.msg = {
+            state: 'success',
+            description: 'Medicamento editado'
+          }
+          accept(this.msg)
+        },
+        error => {
+          this.msg = {
+            state: 'error',
+            description: 'Ha ocurrido un error'
+          }
+          reject(error);
+        }
+      )
+    })
+  }
+
   deleteMedicament(id: number) {
     return new Promise((accept, reject) => {
       const URL =`http://localhost:8000/medicaments/${id}`;

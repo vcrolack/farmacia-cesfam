@@ -1,37 +1,31 @@
-<div class="mat-elevation-z8">
-    <table mat-table class="full-width-table" matSort aria-label="Elements">
-      <!-- Id Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-        <td mat-cell *matCellDef="let row">{{row.id}}</td>
-      </ng-container>
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-        <td mat-cell *matCellDef="let row">{{row.name}}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="quantity">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad</th>
-        <td mat-cell *matCellDef="let row">{{row.quantity}}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="type">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
-        <td mat-cell *matCellDef="let row">{{row.type}}</td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-    <mat-paginator #paginator
-        [length]="dataSource?.data?.length"
-        [pageIndex]="0"
-        [pageSize]="10"
-        [pageSizeOptions]="[5, 10, 20]"
-        aria-label="Select page">
-    </mat-paginator>
-  </div>
-  
+<h1 class="ps-2 pt-2">Stock</h1>
+<div class="fluid-container my-3 pe-4 d-flex justify-content-end">
+  <a routerLink="/admin/add-medicament" mat-raised-button color="secondary"> <fa-icon class="me-1" [icon]="faPlus"></fa-icon> Agregar medicamento</a>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Gramos</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Formato</th>
+      <th scope="">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container>
+      <tr>
+        <th scope="row">1</th>
+        <th>Ibuprofeno</th>
+        <th>400</th>
+        <th>27</th>
+        <th>Comprimidos</th>
+        <th>
+          <a mat-button color="primary">Editar</a>
+          <button type="button" mat-button color="warn">Eliminar</button>
+        </th>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

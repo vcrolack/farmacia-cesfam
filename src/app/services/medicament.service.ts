@@ -57,4 +57,16 @@ export class MedicamentService {
       )
     })
   }
+
+  deleteMedicament(id: number) {
+    return new Promise((accept, reject) => {
+      const URL =`http://localhost:8000/medicaments/${id}`;
+      this.http.delete(URL).subscribe(
+        (data: any) => {
+          accept(data);
+        },
+        error => reject(error)
+      )
+    })
+  }
 }

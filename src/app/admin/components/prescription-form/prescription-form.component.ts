@@ -15,6 +15,8 @@ import { MedicamentService } from 'src/app/services/medicament.service';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { faArrowLeft, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-prescription-form',
   templateUrl: './prescription-form.component.html',
@@ -29,6 +31,8 @@ export class PrescriptionFormComponent implements OnInit {
   typesMedicaments!: TypeMedicament[]
   medicaments!: Medicament[];
   medicamentSelected!: Medicament;
+
+  faArrowLeft: IconDefinition = faArrowLeft;
 
   form = this.fb.group({
     patology: [null, Validators.required],
@@ -82,7 +86,9 @@ export class PrescriptionFormComponent implements OnInit {
         }, 3000)
       }
     )
-    // emit prescription
+    .catch(
+      () => this._snackBar.open('Ha ocurrido un error', 'Cerrar')
+    )
 
   }
 

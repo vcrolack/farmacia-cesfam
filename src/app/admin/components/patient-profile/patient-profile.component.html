@@ -25,18 +25,19 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Fecha</th>
+              <th scope="col">Fecha prescripción</th>
               <th scope="col">Patología</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <ng-container>
+            <ng-container *ngFor="let prescription of prescriptions">
               <tr>
-                <th scope="row">01/02/2022</th>
-                <td>Mordedura de gato</td>
+                <th scope="row">{{prescription.date_prescription}}</th>
+                <td>{{prescription.patology}}</td>
                 <td>
                   <a mat-button color="primary" >Ver más</a>
+                  <button mat-button color="warn" type="button">Eliminar</button>
                 </td>
               </tr>
             </ng-container>

@@ -23,6 +23,7 @@ import { EditMedicamentComponent } from './components/edit-medicament/edit-medic
 import { MedicamentComponent } from './components/medicament/medicament.component';
 import { PrescriptionDetailComponent } from './components/prescription-detail/prescription-detail.component';
 import { EditPrescriptionComponent } from './components/edit-prescription/edit-prescription.component';
+import { PrescriptionsSectionComponent } from './components/dashboard/components/prescriptions-section/prescriptions-section.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { EditPrescriptionComponent } from './components/edit-prescription/edit-p
     EditMedicamentComponent,
     MedicamentComponent,
     PrescriptionDetailComponent,
-    EditPrescriptionComponent
+    EditPrescriptionComponent,
+    PrescriptionsSectionComponent
   ],
   imports: [
     CommonModule,

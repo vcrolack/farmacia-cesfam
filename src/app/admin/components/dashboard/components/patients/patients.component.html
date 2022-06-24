@@ -1,30 +1,28 @@
-<mat-card-content>
-    <mat-table [dataSource]="dataSource">
-        <!-- Position Column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="lastname">
-          <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
-        </ng-container>
-      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="rut">
-          <mat-header-cell *matHeaderCellDef> Rut </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.rut}} </mat-cell>
-        </ng-container>
-      
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="patology">
-          <mat-header-cell *matHeaderCellDef> Patología </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.patology}} </mat-cell>
-        </ng-container>
-      
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-</mat-card-content>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>Pacientes</h1>
+    </div>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Rut</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let patient of patients">
+      <tr>
+        <th scope="row">{{patient.rut}}</th>
+        <td>{{patient.first_name}} {{patient.second_name}}</td>
+        <td>{{patient.last_name}} {{patient.second_last_name}}</td>
+        <td>{{patient.email}}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+

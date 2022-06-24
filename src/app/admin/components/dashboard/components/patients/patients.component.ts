@@ -1,24 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface Patient {
-  name: string;
-  lastname: string;
-  rut: string;
-  patology: string;
-}
+import { Patient } from 'src/app/core/models/patient';
 
-const ELEMENT_DATA: Patient[] = [
-  {name: 'Pedro', lastname: 'Pérez', rut: '19209321-1', patology: 'Progeria'},
-  {name: 'Juan', lastname: 'Dagoberto', rut:'19209321-1', patology: 'Covid remake'},
-  {name: 'Diego', lastname: 'Ormzabal', rut: '19209321-1', patology: 'Tos crónica'},
-  {name: 'Karen', lastname: 'Azamendi', rut: '19209321-1', patology: 'Exceso de belleza'},
-  {name: 'Gon', lastname: 'Freecs', rut: '19209321-1', patology: 'Se quemó con nen'},
-  {name: 'Orochimaru', lastname: '???', rut: '19209321-1', patology: 'Lo tajearon'},
-  {name: 'Gumball', lastname: 'Andersen', rut: '19209321-1', patology: 'Hipotermia'},
-  {name: 'Jake', lastname: 'el Perro', rut: '19209321-1', patology: 'Contractura'},
-  {name: 'Kaori', lastname: 'Miyazono', rut: '19209321-1', patology: 'Enfermedad F'},
-  {name: 'Hatsune', lastname: 'Miku', rut: '19209321-1', patology: 'Sendos temazos'},
-];
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-patients-dashboard',
@@ -27,12 +11,19 @@ const ELEMENT_DATA: Patient[] = [
 })
 export class PatientsComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'lastname', 'rut', 'patology'];
-  dataSource = ELEMENT_DATA;
+  patients!: Patient[];
 
-  constructor() { }
+  constructor(
+    private patientService: PatientService
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+    await this.getPatients()
+    console.log(this.patients)
+  }
+
+  async getPatients() {
+    this.patients = await this.patientService.getPatients();
   }
 
 }

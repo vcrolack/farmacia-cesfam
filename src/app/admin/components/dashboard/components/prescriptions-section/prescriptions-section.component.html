@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope>Encargado</th>
+      <th scope="col">Fecha prescripción</th>
+      <th scope="col">Patología</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let prescription of prescriptions">
+      <tr>
+        <td scope="row">{{prescription.medic_name}}</td>
+        <td>{{prescription.date_prescription}}</td>
+        <td>{{prescription.patology}}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

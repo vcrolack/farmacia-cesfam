@@ -1,0 +1,26 @@
+<div *ngIf="patient" class="fluid-container my-3 px-4 d-flex justify-content-between">
+  <a routerLink="/admin/patient-profile/{{patient.rut}}" mat-raised-button color="secondary"> <fa-icon class="me-1" [icon]="faArrowLeft"></fa-icon> Volver</a>
+</div>
+<mat-card *ngIf="prescription && patient && medicament" class="shipping-card">
+  <mat-card-header><h1>Prescripción - {{prescription.date_prescription}}</h1></mat-card-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h3><strong>Información paciente</strong></h3>
+        <p><strong>Prescripción emitida por: </strong> {{prescription.medic_name}}</p>
+        <p><strong>Nombre paciente:</strong> {{patient.first_name}}</p>
+        <p *ngIf="patient.second_name"><strong>segundo nombre paciente:</strong> {{patient?.second_name}}</p>
+        <p><strong>Apellido paciente:</strong> {{patient.last_name}}</p>
+        <p><strong>Rut paciente:</strong> {{patient.rut}}</p>
+        <p><strong>Email paciente:</strong> {{patient.email}}</p>
+        <p><strong>Celular paciente:</strong> {{patient.phone}} </p>
+        <p><strong>Patología:</strong>{{prescription.patology}} </p>
+        <p><strong>Fecha de prescripción:</strong> {{prescription.date_prescription}}</p>
+        <p><strong>Nombre medicamento:</strong> {{medicament.name}}</p>
+        <p><strong>Gramaje:</strong> {{medicament.grammage}}</p>
+      </div>
+      <div class="col-6">
+      </div>
+    </div>
+  </div>
+</mat-card>

@@ -12,6 +12,7 @@ import { MedicamentComponent } from './components/medicament/medicament.componen
 import { NavComponent } from './components/nav/nav.component';
 import { PatientProfileComponent } from './components/patient-profile/patient-profile.component';
 import { PatientsComponent } from './components/patients/patients.component';
+import { PrescriptionDetailComponent } from './components/prescription-detail/prescription-detail.component';
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
 import  {StockComponent} from './components/stock/stock.component';
 import { UsersComponent } from './components/users/users.component';
@@ -30,6 +31,11 @@ const routes: Routes = [
         path: 'add-prescription/:rut',
         canActivate: [LoginGuard],
         component: PrescriptionFormComponent
+      },
+      {
+        path: 'prescription/:rut/:id',
+        canActivate: [LoginGuard],
+        component: PrescriptionDetailComponent
       },
       {
         path: 'users',

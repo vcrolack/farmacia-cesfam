@@ -4,12 +4,17 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 import { faCircleRight, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
+import { User } from 'src/app/core/models/user';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+  userStorage: any = localStorage.getItem('user');
+  user!: User;
 
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -57,14 +62,15 @@ export class DashboardComponent implements OnInit {
       description: "Servicio de soporte en caso de problemas con el servicio o consultas."
     }
   ]
- 
+
   faCircleRight: IconDefinition = faCircleRight;
 
   constructor(
     private breakpointObserver: BreakpointObserver
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.user = JSON.parse(this.userStorage);
   }
 
 }

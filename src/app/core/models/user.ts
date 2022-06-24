@@ -7,4 +7,5 @@ export interface User {
     specialty_id?: number;
     role_id: number;
     rut: string;
+    email: string;
 }

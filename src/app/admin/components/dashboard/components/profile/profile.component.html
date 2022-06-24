@@ -1,18 +1,17 @@
 <mat-card-content class="dashboard-card-content">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6 d-flex justify-content-end">
+            <div class="col-12 col-md-6 d-flex justify-content-center">
                 <div class="container-img">
-                    <img src="https://www.medicafraga.es/images/medico_cardigologia_jperez.png" alt="">
+                    <img src="../../../../../../assets/img/klipartz.com.png" alt="">
                 </div>
             </div>
-            <div class="col-12 col-md-6 d-flex align-items-center justify-content-start">
-                <ul>
-                    <li>Nombre: Juanito</li>
-                    <li>Apellido: Matasanos</li>
-                    <li>Rol: Medico</li>
-                    <li>Especialidad: mordedura de gatos</li>
-                </ul>
+            <div class="col-12 col-md-6 d-flex align-items-start justify-content-center flex-column">
+              <p class="h4">Nombre: {{user.first_name}} {{user?.second_name}} {{user.last_name}} {{user.second_last_name}}</p>
+              <p class="h4">Rol: {{user.role_id}}</p>
+              <p *ngIf="user.specialty_id" class="h4">Especialidad: {{user?.specialty_id}}</p>
+              <p class="h4">Email: {{user.email}}</p>
+              <p class="h4">Rut: {{user.rut}}</p>
             </div>
         </div>
     </div>

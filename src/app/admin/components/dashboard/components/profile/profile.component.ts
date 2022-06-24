@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { User } from 'src/app/core/models/user';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  userStorage: any = localStorage.getItem('user');
+  user!: User;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.user = JSON.parse(this.userStorage);
   }
 
 }

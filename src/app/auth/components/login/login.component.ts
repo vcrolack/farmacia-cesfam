@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   async loginUser(data: LoginModel) {
     console.log(data)
-    
+
     await this.authService.loginUser(data)
     .then(
       (res: any) => {
@@ -72,7 +72,8 @@ export class LoginComponent implements OnInit {
           second_last_name: res.second_last_name,
           specialty_id: res.specialty_id,
           role_id: res.role_id,
-          rut: res.rut
+          rut: res.rut,
+          email: res.email
         }
         this.user = user;
         localStorage.setItem('user', JSON.stringify(user));

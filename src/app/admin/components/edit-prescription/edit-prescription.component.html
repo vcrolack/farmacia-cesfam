@@ -1,0 +1,54 @@
+<div *ngIf="patient" class="fluid-container my-3 ps-4 d-flex justify-contente-start">
+  <a mat-raised-button routerLink="/admin/patient-profile/{{patient.rut}}"> <fa-icon [icon]="faArrowLeft"></fa-icon> Volver</a>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Editar prescripción</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Patología" formControlName="patology">
+              <mat-error *ngIf="form.controls['patology'].hasError('required')">
+                Address is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Fecha de prescripción" formControlName="date_prescription" type="date">
+              <mat-error *ngIf=" form.controls['date_prescription'].hasError('required') ">
+                Fecha de nacimiento es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+              <h5>Tipo medicamento</h5>
+            <mat-radio-group formControlName="type_medicament_id">
+              <ng-container *ngFor="let typeMedicament of typesMedicaments">
+                <mat-radio-button value={{typeMedicament.id}}>{{typeMedicament.type}}</mat-radio-button>
+              </ng-container>
+            </mat-radio-group>
+          </div>
+          <div class="col">
+            <h5>Medicamento</h5>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose one</mat-label>
+                <mat-select formControlName="medicament_id">
+                    <ng-container *ngFor="let medicament of medicaments">
+                        <mat-option value={{medicament.id}}>{{medicament.name}}</mat-option>
+                    </ng-container>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button [disabled]="!form.valid" color="primary" type="submit">Enviar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>

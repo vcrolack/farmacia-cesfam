@@ -37,6 +37,7 @@
                 <td>{{prescription.patology}}</td>
                 <td>
                   <a routerLink="/admin/prescription/{{patient.rut}}/{{prescription.id}}" mat-button color="primary" >Ver más</a>
+                  <a routerLink="/admin/edit-prescription/{{patient.rut}}/{{prescription.id}}" mat-button color="primary">Editar</a>
                   <button (click)="deletePrescription(prescription.id)" mat-button color="warn" type="button">Eliminar</button>
                 </td>
               </tr>

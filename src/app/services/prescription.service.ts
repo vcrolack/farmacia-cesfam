@@ -14,6 +14,7 @@ export class PrescriptionService {
   }
 
   prescriptionsByPatient!: Prescription[];
+  prescription!: Prescription;
 
   constructor(
     private http: HttpClient
@@ -34,8 +35,19 @@ export class PrescriptionService {
     })
   }
 
-  getPrescriptionByPatient(patient_id: number) {
-
+  getPrescription(prescription_id: number): Promise<Prescription> {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/prescriptions/${prescription_id}`;
+      this.http.get(URL).subscribe(
+        (data: any) => {
+          this.prescription = data;
+          if (this.prescription) {
+            accept(this.prescription);
+          }
+        },
+        error => reject(error)
+      )
+    })
   }
 
   createPrescription(data: any) {

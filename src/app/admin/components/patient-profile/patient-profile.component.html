@@ -36,7 +36,7 @@
                 <th scope="row">{{prescription.date_prescription}}</th>
                 <td>{{prescription.patology}}</td>
                 <td>
-                  <a mat-button color="primary" >Ver más</a>
+                  <a routerLink="/admin/prescription/{{patient.rut}}/{{prescription.id}}" mat-button color="primary" >Ver más</a>
                   <button mat-button color="warn" type="button">Eliminar</button>
                 </td>
               </tr>

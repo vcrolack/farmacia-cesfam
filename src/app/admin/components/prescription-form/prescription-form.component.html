@@ -1,3 +1,6 @@
+<div *ngIf="patient" class="fluid-container my-3 ps-4 d-flex justify-contente-start">
+  <a mat-raised-button routerLink="/admin/patient-profile/{{patient.rut}}"> <fa-icon [icon]="faArrowLeft"></fa-icon> Volver</a>
+</div>
 <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
     <mat-card class="shipping-card">
       <mat-card-header>

@@ -74,7 +74,7 @@ export class MedicamentService {
     })
   }
 
-  updateMedicament(id: number, data: any) {
+  updateMedicament(id: number, data: any): Promise<Medicament> {
     return new Promise((accept, reject) => {
       const URL = `http://localhost:8000/medicaments/${id}`;
       const headers = new HttpHeaders({
@@ -82,12 +82,12 @@ export class MedicamentService {
       })
       const options = {headers: headers};
       this.http.put(URL, data, options).subscribe(
-        (data) => {
+        (data: any) => {
           this.msg = {
             state: 'success',
             description: 'Medicamento editado'
           }
-          accept(this.msg)
+          accept(data);
         },
         error => {
           this.msg = {

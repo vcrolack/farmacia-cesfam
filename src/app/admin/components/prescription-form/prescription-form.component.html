@@ -1,4 +1,4 @@
-<form [formGroup]="form" novalidate (ngSubmit)="onSubmit(form.value)">
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
     <mat-card class="shipping-card">
       <mat-card-header>
         <mat-card-title>Formulario de prescripción</mat-card-title>
@@ -15,8 +15,8 @@
           </div>
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Fecha de prescripción" formControlName="prescription_date" type="date">
-              <mat-error *ngIf=" form.controls['prescription_date'].hasError('required') ">
+              <input matInput placeholder="Fecha de prescripción" formControlName="date_prescription" type="date">
+              <mat-error *ngIf=" form.controls['date_prescription'].hasError('required') ">
                 Fecha de nacimiento es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
@@ -35,7 +35,7 @@
             <h5>Medicamento</h5>
             <mat-form-field appearance="fill">
                 <mat-label>Choose one</mat-label>
-                <mat-select formControlName="medicament">
+                <mat-select formControlName="medicament_id">
                     <ng-container *ngFor="let medicament of medicaments">
                         <mat-option value={{medicament.id}}>{{medicament.name}}</mat-option>
                     </ng-container>
@@ -45,7 +45,7 @@
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">Crear</button>
+        <button mat-raised-button [disabled]="!form.valid" color="primary" type="submit">Crear</button>
       </mat-card-actions>
     </mat-card>
   </form>

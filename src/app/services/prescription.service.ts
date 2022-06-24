@@ -45,7 +45,7 @@ export class PrescriptionService {
             state: 'error',
             description: 'Ha ocurrido un error'
           };
-          reject(this.msg);
+          reject(error);
         }
       )
     })

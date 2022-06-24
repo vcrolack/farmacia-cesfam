@@ -76,8 +76,20 @@ export class PrescriptionService {
     })
   }
 
-  updatePrescription(patient_id: number, data: any) {
-
+  updatePrescription(prescription_id: number, data: any) {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/prescriptions/${prescription_id}`;
+      const headers = new HttpHeaders({
+        'content-type': 'application/json'
+      })
+      const options = {headers: headers}
+      this.http.put(URL, data, options).subscribe(
+        (data: any) => {
+          accept(data);
+        },
+        error => reject(error)
+      )
+    })
   }
 
   deletePrescription(prescription_id: number) {

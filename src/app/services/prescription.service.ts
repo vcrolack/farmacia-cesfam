@@ -81,6 +81,14 @@ export class PrescriptionService {
   }
 
   deletePrescription(prescription_id: number) {
-
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/prescriptions/${prescription_id}`;
+      this.http.delete(URL).subscribe(
+        (data: any) => {
+          accept(data)
+        },
+        error => reject(error)
+      )
+    })
   }
 }

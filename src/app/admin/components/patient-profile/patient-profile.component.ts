@@ -42,5 +42,9 @@ export class PatientProfileComponent implements OnInit {
     this.prescriptions = await this.prescriptionService.getPrescriptionsByPatient(patient_id);
   }
 
+  async deletePrescription(id: number) {
+    this.prescriptionService.deletePrescription(id);
+  }
+
 
 }

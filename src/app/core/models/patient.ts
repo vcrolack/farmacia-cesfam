@@ -1,5 +1,5 @@
 export interface Patient {
-  id: number | string;
+  id: number;
   first_name: string;
   second_name?: string;
   last_name: string;

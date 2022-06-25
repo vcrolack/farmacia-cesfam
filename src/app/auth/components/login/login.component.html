@@ -1,52 +1,84 @@
-<app-header></app-header>
-<div class="container container-form">
-    <div class="container">
-      <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
-        <div class="row d-flex justify-content-center">
-          <div class="container-name col-12 col-lg-6  d-flex justify-content-center pt-5">
-            <div class="container-input d-flex flex-column me-lg-5">
-              <div class="container-email">
-                <label for="">Rut</label>
-                <input placeholder="Sin puntos ni guion" formControlName="rut" class="form-control" type="text">
-                <div class="validation-error">
-                  <ng-container *ngFor="let validation of mensajesErrores.email">
-                    <div
-                      *ngIf="(loginForm.get('rut')!.hasError(validation.type)) &&
-                      (loginForm.get('rut')!.dirty || loginForm.get('rut')!.touched)"
-                    >
+
+<!--Hey! This is the original version
+of Simple CSS Waves-->
+
+<div class="header">
+
+  <!--Content before waves-->
+  <div class="inner-header flex">
+  <!--Just the logo.. Don't mind this-->
+  <svg version="1.1" class="logo" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
+  <path fill="#FFFFFF" stroke="#000000" stroke-width="10" stroke-miterlimit="10" d="M57,283" />
+  </svg>
+  <div class="container container-form">
+      <div class="container">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+          <div class="row d-flex justify-content-center">
+            <div class="container-name col-12 col-lg-6  d-flex justify-content-center pt-5">
+              <div class="container-input d-flex flex-column me-lg-5">
+                <div class="container-email">
+                  <label for="">Rut</label>
+                  <input placeholder="Sin puntos ni guion" formControlName="rut" class="form-control" type="text">
+                  <div class="validation-error">
+                    <ng-container *ngFor="let validation of mensajesErrores.email">
+                      <div
+                        *ngIf="(loginForm.get('rut')!.hasError(validation.type)) &&
+                        (loginForm.get('rut')!.dirty || loginForm.get('rut')!.touched)"
+                      >
+                        <p class="text-warning ">{{validation.message}}</p>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="container-contrasena">
+                  <label for="">Contraseña</label>
+                  <input formControlName="password" class="form-control" type="password">
+                  <div class="validation-error">
+                    <ng-container *ngFor="let validation of mensajesErrores.contrasena">
+                      <div
+                        *ngIf="(loginForm.get('password')!.hasError(validation.type)) &&
+                        (loginForm.get('password')!.dirty || loginForm.get('password')!.touched)"
+                      >
                       <p class="text-warning ">{{validation.message}}</p>
                     </div>
-                  </ng-container>
-                </div>
-              </div>
-              <div class="container-contrasena">
-                <label for="">Contraseña</label>
-                <input formControlName="password" class="form-control" type="password">
-                <div class="validation-error">
-                  <ng-container *ngFor="let validation of mensajesErrores.contrasena">
-                    <div
-                      *ngIf="(loginForm.get('password')!.hasError(validation.type)) &&
-                      (loginForm.get('password')!.dirty || loginForm.get('password')!.touched)"
-                    >
-                    <p class="text-warning ">{{validation.message}}</p>
+                    </ng-container>
                   </div>
-                  </ng-container>
+
                 </div>
-  
               </div>
             </div>
+            <div class="container-logo col-12 col-lg-6 d-flex justify-content-center align-items-start pt-5">
+              <img src="../../../../assets/img/logo.png" alt="">
+            </div>
           </div>
-          <div class="container-logo col-12 col-lg-6 d-flex justify-content-center align-items-start pt-5">
-            <img src="../../../../assets/img/logo.png" alt="">
+          <div class="col-12 d-flex justify-content-center">
+              <p class="text-light">¿Olvidaste tu contraseña? <a class="text-light" href="">Pulsa aquí</a></p>
           </div>
-        </div>
-        <div class="col-12 d-flex justify-content-center">
-            <p>¿Olvidaste tu contraseña? <a href="">Pulsa aquí</a></p>
-        </div>
-        <div class="col-12 d-flex justify-content-center pt-5 pb-3">
-          <button mat-raised-button [disabled]="!loginForm.valid" type="submit" color="primary">Iniciar sesión</button>
-        </div>
-      </form>
+          <div class="col-12 d-flex justify-content-center pt-5 pb-3">
+            <button mat-raised-button [disabled]="!loginForm.valid" type="submit" color="primary">Iniciar sesión</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-  
+
+  <!--Waves Container-->
+  <div>
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+  <defs>
+  <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+  </defs>
+  <g class="parallax">
+  <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+  <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+  <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+  <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+  </g>
+  </svg>
+  </div>
+  <!--Waves end-->
+
+  </div>
+  <!--Header ends-->

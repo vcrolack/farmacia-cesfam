@@ -61,6 +61,20 @@ export class MedicDatesService {
     })
   }
 
+  updateMedicDate(medic_date_id: number, data: any) {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/medics-dates/${medic_date_id}`;
+      const headers = new HttpHeaders({
+        'content-type': 'application/json'
+      })
+      const options = {headers: headers}
+      this.http.put(URL, data, options).subscribe(
+        (data) => accept(data),
+        error => reject(error)
+      )
+    })
+  }
+
   deleteMedicDate(medic_date_id: number) {
     return new Promise((accept, reject) => {
       const URL =  `http://localhost:8000/medics-dates/${medic_date_id}`;

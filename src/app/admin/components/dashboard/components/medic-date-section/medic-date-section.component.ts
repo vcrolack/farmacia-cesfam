@@ -27,7 +27,7 @@ export class MedicDateSectionComponent implements OnInit {
   }
 
   async getMedicDates() {
-    this.medicDates = await this.medicDateService.getMedicDates();
+    //this.medicDates = await this.medicDateService.getMedicDates();
   }
 
   async getPatients() {

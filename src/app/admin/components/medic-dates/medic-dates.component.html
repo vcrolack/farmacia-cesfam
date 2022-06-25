@@ -16,15 +16,15 @@
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let medicDate of medicDates">
+    <ng-container *ngFor="let fullMedicDate of fullMedicDates">
       <tr>
-        <th scope="row">{{medicDate.patient_id}}</th>
-        <td>{{medicDate.medic_date}}</td>
-        <td>{{medicDate.patient_id}}</td>
+        <th scope="row">{{fullMedicDate.Patient.rut}}</th>
+        <td>{{fullMedicDate.MedicDate.medic_date}}</td>
+        <td>{{fullMedicDate.Patient.first_name}} {{fullMedicDate.Patient.last_name}}</td>
         <td>
-          <a routerLink="/admin/detail-medic-date/{{medicDate.id}}" mat-button color="primary" >Ver más</a>
-          <a routerLink="/admin/edit-medic-date/{{medicDate.id}}" mat-button color="primary">Editar</a>
-          <button (click)="deleteMedicDate(medicDate.id)" mat-button color="warn" type="button">Eliminar</button>
+          <a routerLink="/admin/detail-medic-date/{{fullMedicDate.MedicDate.id}}" mat-button color="primary" >Ver más</a>
+          <a routerLink="/admin/edit-medic-date/{{fullMedicDate.MedicDate.id}}" mat-button color="primary">Editar</a>
+          <button (click)="deleteMedicDate(fullMedicDate.MedicDate.id)" mat-button color="warn" type="button">Eliminar</button>
         </td>
       </tr>
     </ng-container>

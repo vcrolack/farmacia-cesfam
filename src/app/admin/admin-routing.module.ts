@@ -9,6 +9,7 @@ import { EditMedicamentComponent } from './components/edit-medicament/edit-medic
 import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
 import { EditPrescriptionComponent } from './components/edit-prescription/edit-prescription.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { MedicDatesComponent } from './components/medic-dates/medic-dates.component';
 import { MedicamentComponent } from './components/medicament/medicament.component';
 import { NavComponent } from './components/nav/nav.component';
 import { PatientProfileComponent } from './components/patient-profile/patient-profile.component';
@@ -97,6 +98,11 @@ const routes: Routes = [
         path: 'medicament/:id',
         canActivate: [LoginGuard],
         component:MedicamentComponent
+      },
+      {
+        path: 'medic-date',
+        canActivate: [LoginGuard],
+        component: MedicDatesComponent
       }
     ]
   }

@@ -1,0 +1,35 @@
+<div class="container pt-2">
+</div>
+<div class="fluid-container">
+  <div class="row mx-2">
+    <div class="col-6">
+      <h1>Citas reservadas</h1>
+    </div>
+    <div class="col-6 d-flex flex-column align-items-end">
+      <a routerLink="/admin/add-patient" mat-raised-button color="secondary"> <fa-icon [icon]="faPlus"></fa-icon> Reservar </a>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Rut paciente</th>
+      <th scope="col">Fecha de cita</th>
+      <th scope="col">Nombre paciente</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let medicDate of medicDates">
+      <tr>
+        <th scope="row">{{medicDate.patient_id}}</th>
+        <td>{{medicDate.medic_date}}</td>
+        <td>{{medicDate.patient_id}}</td>
+        <td>
+          <a routerLink="" mat-button color="primary" >Ver más</a>
+          <a routerLink="" mat-button color="primary">Editar</a>
+          <button mat-button color="warn" type="button">Eliminar</button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

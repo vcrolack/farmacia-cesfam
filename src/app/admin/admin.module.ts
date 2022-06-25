@@ -29,6 +29,7 @@ import { AddMedicDateComponent } from './components/add-medic-date/add-medic-dat
 import { DetailMedicDateComponent } from './components/detail-medic-date/detail-medic-date.component';
 import { EditMedicDateComponent } from './components/edit-medic-date/edit-medic-date.component';
 import { MedicDateSectionComponent } from './components/dashboard/components/medic-date-section/medic-date-section.component';
+import { SupportComponent } from './components/support/support.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MedicDateSectionComponent } from './components/dashboard/components/med
     DetailMedicDateComponent,
     EditMedicDateComponent,
     MedicDateSectionComponent,
+    SupportComponent,
   ],
   imports: [
     CommonModule,

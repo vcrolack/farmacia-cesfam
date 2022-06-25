@@ -20,6 +20,7 @@ import { PatientsComponent } from './components/patients/patients.component';
 import { PrescriptionDetailComponent } from './components/prescription-detail/prescription-detail.component';
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
 import  {StockComponent} from './components/stock/stock.component';
+import { SupportComponent } from './components/support/support.component';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
@@ -121,6 +122,11 @@ const routes: Routes = [
         path: 'edit-medic-date/:id',
         canActivate: [LoginGuard],
         component: EditMedicDateComponent
+      },
+      {
+        path: 'support',
+        canActivate: [LoginGuard],
+        component: SupportComponent
       }
     ]
   }

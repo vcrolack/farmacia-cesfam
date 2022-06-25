@@ -18,3 +18,9 @@ Para instalar el proyecto, seguir los siguientes pasos:
 2. Ejecutar en la terminal `npm install`
 3. Ejecutar en la termina `ng serve`, lo cual abrirá un servidor en local utilizando la dirección de `http://localhost:4200/`
 5. Ingresar la url en el navegador.
+
+##Anexo
+Se adjunta usuario administrador registrado en la base de datos del cesfam para el test:
+* Usuario administrador:
+    * rut: 199609068
+    * pass: test12345

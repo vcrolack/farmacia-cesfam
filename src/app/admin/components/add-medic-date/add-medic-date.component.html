@@ -1,0 +1,33 @@
+<div class="fluid-container my-3 ps-4 d-flex justify-contente-start">
+  <a mat-raised-button routerLink="/admin/medic-date"> <fa-icon [icon]="faArrowLeft"></fa-icon> Volver</a>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Agendar reserva</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Fecha de reserva" formControlName="medic_date" type="date">
+              <mat-error *ngIf="form.controls['medic_date'].hasError('required')">
+                Fecha de reserva es <strong>requerida</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Observaciones" formControlName="observations" ></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button [disabled]="!form.valid" color="primary" type="submit">Crear</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>

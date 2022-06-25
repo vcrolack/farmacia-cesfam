@@ -1,0 +1,20 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Rut paciente</th>
+      <th scope="col">Fecha de cita</th>
+      <th scope="col">Nombre paciente</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let medicDate of medicDates">
+      <tr>
+        <th scope="row">{{medicDate.patient_id}}</th>
+        <td>{{medicDate.medic_date}}</td>
+        <td>{{medicDate.patient_id}}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

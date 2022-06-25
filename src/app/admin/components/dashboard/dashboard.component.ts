@@ -21,9 +21,9 @@ export class DashboardComponent implements OnInit {
       if (matches) {
         return [
           { title: 'Información de usuario', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
+          { title: 'Prescripciones', cols: 1, rows: 1 },
           { title: 'Pacientes', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
+          { title: 'Reservas', cols: 1, rows: 1 }
         ];
       }
 
@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
         { title: 'Información de usuario', cols: 2, rows: 1 },
         { title: 'Prescripciones', cols: 1, rows: 1 },
         { title: 'Pacientes', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'Prescripciones', cols: 1, rows: 1 }
       ];
     })
   );

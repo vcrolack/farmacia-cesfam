@@ -25,6 +25,9 @@
             <ng-container *ngIf="card.title === 'Prescripciones'">
               <app-prescriptions-section></app-prescriptions-section>
             </ng-container>
+            <ng-container *ngIf="card.title === 'Reservas'">
+              <app-medic-date-section></app-medic-date-section>
+            </ng-container>
           </mat-card-content>
         </mat-card>
     </mat-grid-tile>

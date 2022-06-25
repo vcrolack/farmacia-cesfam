@@ -30,6 +30,21 @@ export class MedicDatesService {
     })
   }
 
+  getMedicDate(medic_date_id: number): Promise<MedicDate> {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/medics-dates/${medic_date_id}`;
+      this.http.get(URL).subscribe(
+        (data: any) => {
+          this.medicDate = data;
+          if (this.medicDate) {
+            accept(this.medicDate);
+          }
+        },
+        error => reject(error)
+      )
+    })
+  }
+
   createMedicDate(data: any) {
     return new Promise((accept, reject) => {
       const URL = 'http://localhost:8000/medics-dates';

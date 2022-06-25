@@ -6,6 +6,7 @@ import { AddMedicamentComponent } from './components/add-medicament/add-medicame
 import { AddPatientComponent } from './components/add-patient/add-patient.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DetailMedicDateComponent } from './components/detail-medic-date/detail-medic-date.component';
 import { EditMedicamentComponent } from './components/edit-medicament/edit-medicament.component';
 import { EditPatientComponent } from './components/edit-patient/edit-patient.component';
 import { EditPrescriptionComponent } from './components/edit-prescription/edit-prescription.component';
@@ -109,6 +110,11 @@ const routes: Routes = [
         path: 'add-medic-date/:id',
         canActivate: [LoginGuard],
         component: AddMedicDateComponent
+      },
+      {
+        path: 'detail-medic-date/:id',
+        canActivate: [LoginGuard],
+        component: DetailMedicDateComponent
       }
     ]
   }

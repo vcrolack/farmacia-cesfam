@@ -1,0 +1,30 @@
+<div class="fluid-container my-3 px-4 d-flex justify-content-between">
+  <a routerLink="/admin/medic-date" mat-raised-button color="secondary"> <fa-icon class="me-1" [icon]="faArrowLeft"></fa-icon> Volver</a>
+</div>
+<mat-card *ngIf="patient && medicDate" class="shipping-card">
+  <mat-card-header><h1>Detalle reserva</h1></mat-card-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <h3><strong>Información paciente</strong></h3>
+        <p><strong>Nombre paciente:</strong> {{patient.first_name}}</p>
+        <p *ngIf="patient.second_name"><strong>segundo nombre paciente:</strong> {{patient?.second_name}}</p>
+        <p><strong>Apellido paciente:</strong> {{patient.last_name}}</p>
+        <p><strong>Rut paciente:</strong> {{patient.rut}}</p>
+        <p><strong>Email paciente:</strong> {{patient.email}}</p>
+        <p><strong>Celular paciente:</strong> {{patient.phone}} </p>
+      </div>
+      <div class="col-4">
+        <h3><strong>Información médico</strong></h3>
+          <p><strong>Nombre médico:</strong> {{user.first_name}} {{user.last_name}} {{user.second_last_name}}</p>
+          <p *ngIf="user.specialty_id"><strong>Especialidad:</strong> {{user?.specialty_id}}</p>
+      </div>
+      <div class="col-4">
+        <h3><strong>Información reserva</strong></h3>
+        <p><strong>Fecha de reserva:</strong> {{medicDate.medic_date}}</p>
+        <p><strong>Observaciones:</strong> {{medicDate.observations}}</p>
+      </div>
+    </div>
+  </div>
+</mat-card>
+

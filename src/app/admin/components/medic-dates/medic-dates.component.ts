@@ -39,4 +39,8 @@ export class MedicDatesComponent implements OnInit {
 
   }
 
+  async deleteMedicDate(medic_date_id: number) {
+    await this.medicDateService.deleteMedicDate(medic_date_id);
+  }
+
 }

@@ -60,4 +60,14 @@ export class MedicDatesService {
       )
     })
   }
+
+  deleteMedicDate(medic_date_id: number) {
+    return new Promise((accept, reject) => {
+      const URL =  `http://localhost:8000/medics-dates/${medic_date_id}`;
+      this.http.delete(URL).subscribe(
+        data => accept(data),
+        error => reject(error)
+      )
+    })
+  }
 }

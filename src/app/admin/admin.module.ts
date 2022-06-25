@@ -24,6 +24,7 @@ import { MedicamentComponent } from './components/medicament/medicament.componen
 import { PrescriptionDetailComponent } from './components/prescription-detail/prescription-detail.component';
 import { EditPrescriptionComponent } from './components/edit-prescription/edit-prescription.component';
 import { PrescriptionsSectionComponent } from './components/dashboard/components/prescriptions-section/prescriptions-section.component';
+import { MedicDatesComponent } from './components/medic-dates/medic-dates.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PrescriptionsSectionComponent } from './components/dashboard/components
     MedicamentComponent,
     PrescriptionDetailComponent,
     EditPrescriptionComponent,
-    PrescriptionsSectionComponent
+    PrescriptionsSectionComponent,
+    MedicDatesComponent,
   ],
   imports: [
     CommonModule,

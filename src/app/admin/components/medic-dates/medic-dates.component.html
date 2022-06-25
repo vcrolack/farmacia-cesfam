@@ -24,7 +24,7 @@
         <td>
           <a routerLink="/admin/detail-medic-date/{{medicDate.id}}" mat-button color="primary" >Ver más</a>
           <a routerLink="" mat-button color="primary">Editar</a>
-          <button mat-button color="warn" type="button">Eliminar</button>
+          <button (click)="deleteMedicDate(medicDate.id)" mat-button color="warn" type="button">Eliminar</button>
         </td>
       </tr>
     </ng-container>

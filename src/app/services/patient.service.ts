@@ -9,6 +9,7 @@ import { Patient } from '../core/models/patient';
 export class PatientService {
 
   patients!: Patient[];
+  patient!: Patient;
 
   msg = {
     state: '',
@@ -41,6 +42,21 @@ export class PatientService {
         (data: any) => {
           accept(data);
         }
+      )
+    })
+  }
+
+  getPatientById(patient_id: number): Promise<Patient> {
+    return new Promise((accept, reject) => {
+      const URL = `http://localhost:8000/patients/id/${patient_id}`;
+      this.http.get(URL).subscribe(
+        (data: any) => {
+          this.patient = data;
+          if (this.patient) {
+            accept(this.patient)
+          }
+        },
+        error => reject(error)
       )
     })
   }

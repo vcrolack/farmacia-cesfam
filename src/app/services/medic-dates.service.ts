@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { MedicDate } from '../core/models/medic-date';
 
@@ -24,6 +24,22 @@ export class MedicDatesService {
           if (this.medicDates) {
             accept(this.medicDates);
           }
+        },
+        error => reject(error)
+      )
+    })
+  }
+
+  createMedicDate(data: any) {
+    return new Promise((accept, reject) => {
+      const URL = 'http://localhost:8000/medics-dates';
+      const headers = new HttpHeaders({
+        'content-type': 'application/json'
+      })
+      const options = {headers: headers}
+      this.http.post(URL, data, options).subscribe(
+        (data: any) => {
+          accept(data);
         },
         error => reject(error)
       )

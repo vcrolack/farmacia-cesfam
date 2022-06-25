@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { faArrowLeft, faFileMedical ,IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faFileMedical, faPlus ,IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 import { Patient } from 'src/app/core/models/patient';
 import { Prescription } from 'src/app/core/models/prescription';
@@ -18,6 +18,7 @@ export class PatientProfileComponent implements OnInit {
 
   faArrowLeft: IconDefinition = faArrowLeft;
   faFileMedical: IconDefinition = faFileMedical;
+  faPlus: IconDefinition = faPlus;
   patient!: Patient;
   prescriptions!: Prescription[];
 

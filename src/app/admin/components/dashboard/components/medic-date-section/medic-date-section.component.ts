@@ -19,8 +19,11 @@ export class MedicDateSectionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getMedicDates();
-    console.log(this.medicDates);
+    setTimeout(() => {
+      this.getMedicDates();
+      console.log(this.medicDates);
+
+    }, 3000)
   }
 
   async getMedicDates() {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MedicDatesService } from 'src/app/services/medic-dates.service';
 
-import { MedicDate } from 'src/app/core/models/medic-date';
+import { MedicDate, FullMedicDate } from 'src/app/core/models/medic-date';
 
 
 @Component({
@@ -13,6 +13,7 @@ import { MedicDate } from 'src/app/core/models/medic-date';
 export class MedicDateSectionComponent implements OnInit {
 
   medicDates!: MedicDate[];
+  fullMedicDates!: FullMedicDate[];
 
   constructor(
     private medicDateService: MedicDatesService
@@ -21,13 +22,11 @@ export class MedicDateSectionComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.getMedicDates();
-      console.log(this.medicDates);
-
     }, 3000)
   }
 
   async getMedicDates() {
-    //this.medicDates = await this.medicDateService.getMedicDates();
+    this.fullMedicDates = await this.medicDateService.getMedicDates();
   }
 
   async getPatients() {

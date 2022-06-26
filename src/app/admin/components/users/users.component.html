@@ -13,16 +13,16 @@
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let user of users">
+    <ng-container *ngFor="let fullUser of fullUsers">
       <tr>
-        <th scope="row">{{user.rut}}</th>
-        <td>{{user.first_name}} {{user.second_name}}</td>
-        <td> {{user.last_name}} {{user.second_last_name}}</td>
-        <td>{{user.role_id}}</td>
-        <td>{{user.specialty_id}}</td>
+        <th scope="row">{{fullUser.User.rut}}</th>
+        <td>{{fullUser.User.first_name}} {{fullUser.User.second_name}}</td>
+        <td> {{fullUser.User.last_name}} {{fullUser.User.second_last_name}}</td>
+        <td>{{fullUser.Role.name}}</td>
+        <td *ngIf="fullUser.Specialty?.name">{{fullUser.Specialty?.name}}</td>
         <td>
-          <a mat-button color="primary" [routerLink]="['/admin/edit-user', user.rut]">Editar</a>
-          <button type="button" mat-button color="warn" (click)="deleteUser(user.rut)">Eliminar</button>
+          <a mat-button color="primary" [routerLink]="['/admin/edit-user', fullUser.User.rut]">Editar</a>
+          <button type="button" mat-button color="warn" (click)="deleteUser(fullUser.User.rut)">Eliminar</button>
         </td>
       </tr>
     </ng-container>

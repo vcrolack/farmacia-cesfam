@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../core/models/user';
+import { User, FullUser } from '../core/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,8 @@ export class UserService {
     description: ''
   }
 
-  users!: User[]
+  users!: User[];
+  fullUsers!: FullUser[];
 
   roles: Object[] = [
     {id: 1, name: 'Médico'},
@@ -51,15 +52,15 @@ export class UserService {
     })
   }
 
-  getUsers(): Promise<User[]> {
+  getUsers(): Promise<FullUser[]> {
     return new Promise((accept, reject) => {
       const URL = 'http://localhost:8000/users'
       this.http.get(URL).subscribe(
         (data: any) => {
-          this.users = data;
+          this.fullUsers = data;
 
-          if (this.users) {
-            accept(this.users);
+          if (this.fullUsers) {
+            accept(this.fullUsers);
           }
         },
         error => {

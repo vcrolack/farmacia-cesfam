@@ -1,3 +1,6 @@
+import { Role } from "./role";
+import { Specialty } from "./specialty";
+
 export interface User {
     id: number | string;
     first_name: string;
@@ -8,4 +11,10 @@ export interface User {
     role_id: number;
     rut: string;
     email: string;
+}
+
+export interface FullUser {
+  User: User;
+  Role: Role;
+  Specialty?: Specialty;
 }

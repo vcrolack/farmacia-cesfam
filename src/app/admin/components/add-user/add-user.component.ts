@@ -28,17 +28,20 @@ export class AddUserComponent {
     {id: "1", name: 'Cardiologo'},
     {id: "2", name: 'General'}
   ]
-  
+
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private _snackBar: MatSnackBar 
+    private _snackBar: MatSnackBar
   ) {}
 
   onSubmit(data: any) {
     data.role_id = parseInt(data.role_id)
     data.specialty_id = parseInt(data.specialty_id)
+    if (!data.specialty_id) {
+      data.specialty_id = 5
+    }
     console.log(typeof(data))
     this.userService.postUser(data).then(
       () => {

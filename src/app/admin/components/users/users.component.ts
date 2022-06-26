@@ -4,7 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatTable } from '@angular/material/table';
 import { faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
-import { User } from 'src/app/core/models/user';
+import { FullUser, User } from 'src/app/core/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
 
   displayedColumns: string[] = ['id','Nombre', 'Segundo nombre', 'Apellido Paterno', 'Apellido materno', 'Rut', 'Rol', 'Especialidad' ];
   users!: User[];
+  fullUsers!: FullUser[];
   faPlus: IconDefinition = faPlus;
 
 
@@ -26,12 +27,12 @@ export class UsersComponent implements OnInit {
   async ngOnInit() {
     await this.getUsers()
     console.log(this.users)
-    
+
   }
 
   async getUsers() {
-    this.users = await this.userService.getUsers()
-    return this.users
+    this.fullUsers = await this.userService.getUsers()
+    return this.fullUsers
   }
 
   async deleteUser (rut: string) {

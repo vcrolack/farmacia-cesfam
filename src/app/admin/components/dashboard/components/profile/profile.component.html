@@ -8,7 +8,7 @@
             </div>
             <div class="col-12 col-md-6 d-flex align-items-start justify-content-center flex-column">
               <p class="h4">Nombre: {{user.first_name}} {{user?.second_name}} {{user.last_name}} {{user.second_last_name}}</p>
-              <p class="h4">Rol: {{user.role_id}}</p>
+              <p class="h4">Rol: {{user.role_name}}</p>
               <p *ngIf="user.specialty_id" class="h4">Especialidad: {{user?.specialty_id}}</p>
               <p class="h4">Email: {{user.email}}</p>
               <p class="h4">Rut: {{user.rut}}</p>

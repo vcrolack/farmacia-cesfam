@@ -24,3 +24,6 @@ Se adjunta usuario administrador registrado en la base de datos del cesfam para 
 * Usuario administrador:
     * rut: 199609068
     * pass: test12345
+* Servicio externo utilizado:
+    * [LibreAPI](https://docs.libreapi.cl/es/)
+      Es una API con multitud de funcionalidades, de las cuales se utilizó el validador de ruts.
